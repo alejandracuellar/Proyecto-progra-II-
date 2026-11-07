@@ -7,7 +7,8 @@ public class Elemento extends Recurso{
     private String categoria;
     private String especificacionesAdicionales;
 
-    public Elemento(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente, Ubicacion ubicacionActual, String marca, String numeroSerie, String categoria, String especificacionesAdicionales) {
+    public Elemento(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente,
+                    Ubicacion ubicacionActual, String marca, String numeroSerie, String categoria, String especificacionesAdicionales) {
         super(codigoEquipo, descripcion, estado, requiereAutorizacionDocente, ubicacionActual);
         this.marca = marca;
         this.numeroSerie = numeroSerie;
