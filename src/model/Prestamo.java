@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Prestamo {
     private String codigoFormatoFisico;
@@ -9,17 +10,21 @@ public class Prestamo {
     private LocalDateTime fechaEjecucion;
     private LocalDateTime fechaDevolucionEsperada;
     private LocalDateTime fechaDevolucionReal;
+    private String destinoUbicacion;
     private String estadoPrestamo;
     private String observaciones;
+    private List<Recurso> equiposSolicitados;
 
-    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String estadoPrestamo, String observaciones) {
+    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados) {
         this.codigoFormatoFisico = codigoFormatoFisico;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaEjecucion = fechaEjecucion;
         this.fechaDevolucionEsperada = fechaDevolucionEsperada;
         this.fechaDevolucionReal = fechaDevolucionReal;
+        this.destinoUbicacion = destinoUbicacion;
         this.estadoPrestamo = estadoPrestamo;
         this.observaciones = observaciones;
+        this.equiposSolicitados = equiposSolicitados;
     }
 
     public String getCodigoFormatoFisico() {
@@ -62,6 +67,14 @@ public class Prestamo {
         this.fechaDevolucionReal = fechaDevolucionReal;
     }
 
+    public String getDestinoUbicacion() {
+        return destinoUbicacion;
+    }
+
+    public void setDestinoUbicacion(String destinoUbicacion) {
+        this.destinoUbicacion = destinoUbicacion;
+    }
+
     public String getEstadoPrestamo() {
         return estadoPrestamo;
     }
@@ -78,6 +91,14 @@ public class Prestamo {
         this.observaciones = observaciones;
     }
 
+    public List<Recurso> getEquiposSolicitados() {
+        return equiposSolicitados;
+    }
+
+    public void setEquiposSolicitados(List<Recurso> equiposSolicitados) {
+        this.equiposSolicitados = equiposSolicitados;
+    }
+
     @Override
     public String toString() {
         return "Prestamo{" +
@@ -86,8 +107,10 @@ public class Prestamo {
                 ", fechaEjecucion=" + fechaEjecucion +
                 ", fechaDevolucionEsperada=" + fechaDevolucionEsperada +
                 ", fechaDevolucionReal=" + fechaDevolucionReal +
+                ", destinoUbicacion='" + destinoUbicacion + '\'' +
                 ", estadoPrestamo='" + estadoPrestamo + '\'' +
                 ", observaciones='" + observaciones + '\'' +
+                ", equiposSolicitados=" + equiposSolicitados +
                 '}';
     }
 }
