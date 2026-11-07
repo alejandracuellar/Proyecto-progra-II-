@@ -1,20 +1,20 @@
 package model;
 
 public class Ubicacion {
-    private String bloque;
+    private String bloqueEdificio;
     private String numeroSalon;
 
-    public Ubicacion(String bloque, String numeroSalon) {
-        this.bloque = bloque;
+    public Ubicacion(String bloqueEdificio, String numeroSalon) {
+        this.bloqueEdificio = bloqueEdificio;
         this.numeroSalon = numeroSalon;
     }
 
-    public String getBloque() {
-        return bloque;
+    public String getBloqueEdificio() {
+        return bloqueEdificio;
     }
 
-    public void setBloque(String bloque) {
-        this.bloque = bloque;
+    public void setBloqueEdificio(String bloqueEdificio) {
+        this.bloqueEdificio = bloqueEdificio;
     }
 
     public String getNumeroSalon() {
@@ -28,7 +28,7 @@ public class Ubicacion {
     @Override
     public String toString() {
         return "Ubicacion{" +
-                "bloque='" + bloque + '\'' +
+                "bloque='" + bloqueEdificio + '\'' +
                 ", numeroSalon='" + numeroSalon + '\'' +
                 '}';
     }

@@ -5,12 +5,14 @@ public abstract class Recurso {
     private String descripcion;
     private String estado;
     private boolean requiereAutorizacionDocente;
+    private Ubicacion ubicacionActual;
 
-    public Recurso(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente) {
+    public Recurso(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente, Ubicacion ubicacionActual) {
         this.codigoEquipo = codigoEquipo;
         this.descripcion = descripcion;
         this.estado = estado;
         this.requiereAutorizacionDocente = requiereAutorizacionDocente;
+        this.ubicacionActual = ubicacionActual;
     }
 
     public String getCodigoEquipo() {
@@ -45,6 +47,14 @@ public abstract class Recurso {
         this.requiereAutorizacionDocente = requiereAutorizacionDocente;
     }
 
+    public Ubicacion getUbicacionActual() {
+        return ubicacionActual;
+    }
+
+    public void setUbicacionActual(Ubicacion ubicacionActual) {
+        this.ubicacionActual = ubicacionActual;
+    }
+
     @Override
     public String toString() {
         return "Recurso{" +
@@ -52,6 +62,7 @@ public abstract class Recurso {
                 ", descripcion='" + descripcion + '\'' +
                 ", estado='" + estado + '\'' +
                 ", requiereAutorizacionDocente=" + requiereAutorizacionDocente +
+                ", ubicacionActual=" + ubicacionActual +
                 '}';
     }
 }

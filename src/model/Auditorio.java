@@ -3,26 +3,16 @@ package model;
 import java.util.List;
 
 public class Auditorio {
-    private String codigoAuditorio;
     private String nombreAuditorio;
     private int capacidad;
     private String ubicacion;
     private List<HorarioDisponibilidad> horariosDisponibles;
 
-    public Auditorio(String codigoAuditorio, String nombreAuditorio, int capacidad, String ubicacion, List<HorarioDisponibilidad> horariosDisponibles) {
-        this.codigoAuditorio = codigoAuditorio;
+    public Auditorio(String nombreAuditorio, int capacidad, String ubicacion, List<HorarioDisponibilidad> horariosDisponibles) {
         this.nombreAuditorio = nombreAuditorio;
         this.capacidad = capacidad;
         this.ubicacion = ubicacion;
         this.horariosDisponibles = horariosDisponibles;
-    }
-
-    public String getCodigoAuditorio() {
-        return codigoAuditorio;
-    }
-
-    public void setCodigoAuditorio(String codigoAuditorio) {
-        this.codigoAuditorio = codigoAuditorio;
     }
 
     public String getNombreAuditorio() {
@@ -60,8 +50,7 @@ public class Auditorio {
     @Override
     public String toString() {
         return "Auditorio{" +
-                "codigoAuditorio='" + codigoAuditorio + '\'' +
-                ", nombreAuditorio='" + nombreAuditorio + '\'' +
+                "nombreAuditorio='" + nombreAuditorio + '\'' +
                 ", capacidad=" + capacidad +
                 ", ubicacion=" + ubicacion +
                 ", horariosDisponibles=" + horariosDisponibles +
