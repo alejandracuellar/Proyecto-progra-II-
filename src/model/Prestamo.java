@@ -14,7 +14,13 @@ public class Prestamo {
     private String observaciones;
     private List<Recurso> equiposSolicitados;
 
-    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados) {
+
+    // Relaciones según el UML
+    private Usuario usuarioSolicitante;
+    private FuncionarioAudiovisuales entregadoPor;
+    private FuncionarioAudiovisuales recibidoPor;
+
+    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante, FuncionarioAudiovisuales entregadoPor, FuncionarioAudiovisuales recibidoPor) {
         this.codigoFormatoFisico = codigoFormatoFisico;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaEjecucion = fechaEjecucion;
@@ -24,6 +30,9 @@ public class Prestamo {
         this.estadoPrestamo = estadoPrestamo;
         this.observaciones = observaciones;
         this.equiposSolicitados = equiposSolicitados;
+        this.usuarioSolicitante = usuarioSolicitante;
+        this.entregadoPor = entregadoPor;
+        this.recibidoPor = recibidoPor;
     }
 
     public String getCodigoFormatoFisico() {
@@ -98,6 +107,30 @@ public class Prestamo {
         this.equiposSolicitados = equiposSolicitados;
     }
 
+    public Usuario getUsuarioSolicitante() {
+        return usuarioSolicitante;
+    }
+
+    public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
+        this.usuarioSolicitante = usuarioSolicitante;
+    }
+
+    public FuncionarioAudiovisuales getEntregadoPor() {
+        return entregadoPor;
+    }
+
+    public void setEntregadoPor(FuncionarioAudiovisuales entregadoPor) {
+        this.entregadoPor = entregadoPor;
+    }
+
+    public FuncionarioAudiovisuales getRecibidoPor() {
+        return recibidoPor;
+    }
+
+    public void setRecibidoPor(FuncionarioAudiovisuales recibidoPor) {
+        this.recibidoPor = recibidoPor;
+    }
+
     @Override
     public String toString() {
         return "Prestamo{" +
@@ -110,6 +143,9 @@ public class Prestamo {
                 ", estadoPrestamo='" + estadoPrestamo + '\'' +
                 ", observaciones='" + observaciones + '\'' +
                 ", equiposSolicitados=" + equiposSolicitados +
+                ", usuarioSolicitante=" + usuarioSolicitante +
+                ", entregadoPor=" + entregadoPor +
+                ", recibidoPor=" + recibidoPor +
                 '}';
     }
 }

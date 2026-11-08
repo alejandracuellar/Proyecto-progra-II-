@@ -1,0 +1,730 @@
+[
+  {
+    "codigoEquipo": "A-2024-386707",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386708",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386709",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386710",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386711",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386712",
+    "nombreEquipo": "Altavoces Bose Professional DM6SE",
+    "tipo": "Audio",
+    "descripcion": "Altavoces coaxiales de 2 vías con drivers de compresión de 203 mm. Potencia pico 500W, continuo 125W. Impedancia 8Ω. Incluye soportes.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386713",
+    "nombreEquipo": "Subwoofer Bose DM 10S",
+    "tipo": "Audio",
+    "descripcion": "Subwoofer de montaje en superficie. Woofer de 10 pulgadas. Potencia continua 300W, pico 1200W.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386714",
+    "nombreEquipo": "Amplificador Bose PowerMatch PM8500N / PowerShareX PSX1204D",
+    "tipo": "Audio",
+    "descripcion": "Amplificador profesional de potencia configurable para sistemas de refuerzo de sonido.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386715",
+    "nombreEquipo": "Gabinete de piso Metálico",
+    "tipo": "Accesorio",
+    "descripcion": "Encerramiento metálico con puerta para red de distribución.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386716",
+    "nombreEquipo": "Patch panel de 16 conectores XLR - RCA",
+    "tipo": "Accesorio",
+    "descripcion": "Panel de conexiones de audio.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386717",
+    "nombreEquipo": "XLr Face Plate",
+    "tipo": "Accesorio",
+    "descripcion": "Placa doble enlace de audio.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386718",
+    "nombreEquipo": "XLr Face Plate",
+    "tipo": "Accesorio",
+    "descripcion": "Placa doble enlace de audio.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386719",
+    "nombreEquipo": "XLr Face Plate",
+    "tipo": "Accesorio",
+    "descripcion": "Placa doble enlace de audio.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386720",
+    "nombreEquipo": "XLr Face Plate",
+    "tipo": "Accesorio",
+    "descripcion": "Placa doble enlace de audio.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386721",
+    "nombreEquipo": "Aislador pasivo Radial TWIN ISO (Behringer)",
+    "tipo": "Accesorio",
+    "descripcion": "Destruye zumbido del bucle de suelo y de campo eléctrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386722",
+    "nombreEquipo": "Aislador pasivo Radial TWIN ISO (Behringer)",
+    "tipo": "Accesorio",
+    "descripcion": "Destruye zumbido del bucle de suelo y de campo eléctrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386723",
+    "nombreEquipo": "Bandeja sencilla ventilada Quest 1017",
+    "tipo": "Accesorio",
+    "descripcion": "19X15 1RU.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386724",
+    "nombreEquipo": "Bandeja sencilla ventilada Quest 1017",
+    "tipo": "Accesorio",
+    "descripcion": "19X15 1RU.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-386725",
+    "nombreEquipo": "Multitoma Horizontal MV4840",
+    "tipo": "Accesorio",
+    "descripcion": "115 Volt 20 amperios, 8 salidas, polo aislado a tierra.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389148",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389149",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389150",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389151",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389152",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389153",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389154",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389156",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-389157",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Incluye: 2 cables HDMI, 1 cable VGA, control remoto, maletín y cable de poder.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412757",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101808.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412758",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101832.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412759",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101829.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412760",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101800.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412761",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8885Y00937.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412762",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8BB6101798.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412763",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101842.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-412764",
+    "nombreEquipo": "Video Beam Epson PowerLite 119W",
+    "tipo": "Video",
+    "descripcion": "Proyector Serie X8886101797.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-391053",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 86\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara, teclado y cables.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2024-391054",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 86\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara, teclado y cables.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403051",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403052",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403053",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403054",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403055",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403056",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403057",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403058",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-403059",
+    "nombreEquipo": "Pantalla Interactiva OneScreen Touchscreen T7 65\"",
+    "tipo": "Video",
+    "descripcion": "Incluye Módulo OPS, cámara web, cable HDMI 4K (7m), extensión eléctrica Ónix (8m), teclado y mouse inalámbrico.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2025-405425",
+    "nombreEquipo": "Pantalla Interactiva OneScreen T786 86\"",
+    "tipo": "Video",
+    "descripcion": "Incluye soporte móvil, teclado, cables, OPS y cámara web.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2021-378219",
+    "nombreEquipo": "Polycom Studio",
+    "tipo": "Video",
+    "descripcion": "Incluye cable extensor USB 2.0, cable USB 5m, cable de poder, cargador y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2021-378220",
+    "nombreEquipo": "Polycom Studio",
+    "tipo": "Video",
+    "descripcion": "Incluye cable extensor USB 2.0, cable USB 5m, cable de poder, cargador y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2021-378224",
+    "nombreEquipo": "Polycom Studio",
+    "tipo": "Video",
+    "descripcion": "Incluye cable extensor USB 2.0, cable USB 5m, cable de poder, cargador y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2022-380384",
+    "nombreEquipo": "Video Proyector Epson PowerLite 118",
+    "tipo": "Video",
+    "descripcion": "Proyector 3800 lúmenes, XGA. 3LCD.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2022-380385",
+    "nombreEquipo": "Video Proyector Epson PowerLite 118",
+    "tipo": "Video",
+    "descripcion": "Proyector 3800 lúmenes, XGA. 3LCD.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2008-079433",
+    "nombreEquipo": "Video Beam Epson Powerlite 82C",
+    "tipo": "Video",
+    "descripcion": "Proyector.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2008-082521",
+    "nombreEquipo": "Video Beam Epson Powerlite 830P",
+    "tipo": "Video",
+    "descripcion": "Proyector 3000 Lumens XGA.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2008-063285",
+    "nombreEquipo": "Estabilizador Corriente 1000",
+    "tipo": "Accesorio",
+    "descripcion": "Estabilizador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": false
+  },
+  {
+    "codigoEquipo": "A-2008-063342",
+    "nombreEquipo": "Estabilizador 1000W / 1200V",
+    "tipo": "Accesorio",
+    "descripcion": "Estabilizador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": false
+  },
+  {
+    "codigoEquipo": "A-2008-063364",
+    "nombreEquipo": "Estabilizador 1000W New Line",
+    "tipo": "Accesorio",
+    "descripcion": "Estabilizador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": false
+  },
+  {
+    "codigoEquipo": "A-2008-061693",
+    "nombreEquipo": "Estabilizador 1000W",
+    "tipo": "Accesorio",
+    "descripcion": "Estabilizador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": false
+  },
+  {
+    "codigoEquipo": "A-2008-063984",
+    "nombreEquipo": "Estabilizador 1000W / 1200V",
+    "tipo": "Accesorio",
+    "descripcion": "Estabilizador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": false
+  },
+  {
+    "codigoEquipo": "A-2008-062545",
+    "nombreEquipo": "Impresora HP Laser 1300",
+    "tipo": "Computo",
+    "descripcion": "20 ppm, 1200 dpi.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2008-090479",
+    "nombreEquipo": "Lector Láser de Código de Barras Symbol",
+    "tipo": "Accesorio",
+    "descripcion": "Bidireccional. Incluye soporte, cable, CD.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2010-124824",
+    "nombreEquipo": "Telón para proyección",
+    "tipo": "Video",
+    "descripcion": "1,5 x 1,77m.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2010-124825",
+    "nombreEquipo": "Telón eléctrico",
+    "tipo": "Video",
+    "descripcion": "2,34m x 1,77m. Black out importado antiflama. Control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2010-124826",
+    "nombreEquipo": "Telón eléctrico",
+    "tipo": "Video",
+    "descripcion": "2,34m x 1,77m. Black out importado antiflama. Control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-250169",
+    "nombreEquipo": "Lector de Tarjetas",
+    "tipo": "Accesorio",
+    "descripcion": "Lector.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-250141",
+    "nombreEquipo": "Lectoras de Enrolamiento Biométrico",
+    "tipo": "Accesorio",
+    "descripcion": "Lectoras biométricas.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2008-089030",
+    "nombreEquipo": "Computador Portátil Toshiba A205-S5843",
+    "tipo": "Computo",
+    "descripcion": "Portátil.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-247513",
+    "nombreEquipo": "Computador Portátil HP ProBook 4440S",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7 3612QM, 8GB RAM. Incluye maletín, guaya, cargador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-247381",
+    "nombreEquipo": "Computador Portátil HP ProBook 4440S",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7 3612QM, 8GB RAM. Incluye maletín, guaya, cargador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-247383",
+    "nombreEquipo": "Computador Portátil HP ProBook 4440S",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7 3612QM, 8GB RAM. Incluye maletín, guaya, cargador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2013-247384",
+    "nombreEquipo": "Computador Portátil HP ProBook 4440S",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7 3612QM, 8GB RAM. Incluye maletín, guaya, cargador.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-290796",
+    "nombreEquipo": "Computador Portátil HP ProBook 440 G2",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7-5500U, 4GB RAM, 1TB. Incluye batería, cargador, maletín.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-290797",
+    "nombreEquipo": "Computador Portátil HP ProBook 440 G2",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7-5500U, 4GB RAM, 1TB. Incluye batería, cargador, maletín.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-290800",
+    "nombreEquipo": "Computador Portátil HP ProBook 440 G2",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7-5500U, 4GB RAM, 1TB. Incluye batería, cargador, maletín.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-290802",
+    "nombreEquipo": "Computador Portátil HP ProBook 440 G2",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7-5500U, 4GB RAM, 1TB. Incluye batería, cargador, maletín.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-290809",
+    "nombreEquipo": "Computador Portátil HP ProBook 440 G2",
+    "tipo": "Computo",
+    "descripcion": "Intel Core i7-5500U, 4GB RAM, 1TB. Incluye batería, cargador, maletín.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2020-372319",
+    "nombreEquipo": "Computador Portátil Lenovo V145",
+    "tipo": "Computo",
+    "descripcion": "AMD A6-9225, 8GB RAM, 500GB DD.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2020-372239",
+    "nombreEquipo": "Computador Portátil Lenovo V145",
+    "tipo": "Computo",
+    "descripcion": "AMD A6-9225, 8GB RAM, 500GB DD.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2015-288528",
+    "nombreEquipo": "Tablet Samsung 10.5\"",
+    "tipo": "Computo",
+    "descripcion": "16GB, 3GB RAM, Android. Incluye estuche y cable USB.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326283",
+    "nombreEquipo": "Tablet Samsung Galaxy Tab A with S Pen 9.7\"",
+    "tipo": "Computo",
+    "descripcion": "16GB. Incluye S Pen.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326284",
+    "nombreEquipo": "Tablet Samsung Galaxy Tab A with S Pen 9.7\"",
+    "tipo": "Computo",
+    "descripcion": "16GB. Incluye S Pen.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326285",
+    "nombreEquipo": "Tablet Samsung Galaxy Tab A with S Pen 9.7\"",
+    "tipo": "Computo",
+    "descripcion": "16GB. Incluye S Pen.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326286",
+    "nombreEquipo": "Tablet Samsung Galaxy Tab A with S Pen 9.7\"",
+    "tipo": "Computo",
+    "descripcion": "16GB. Incluye S Pen.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2011-134119",
+    "nombreEquipo": "Televisor Samsung UN32D5500RM LED 32\"",
+    "tipo": "Video",
+    "descripcion": "Incluye control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326198",
+    "nombreEquipo": "Smart TV Samsung 40/42\"",
+    "tipo": "Video",
+    "descripcion": "Incluye soporte a pared y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2017-326199",
+    "nombreEquipo": "Smart TV Samsung 40/42\"",
+    "tipo": "Video",
+    "descripcion": "Incluye soporte a pared y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-413242",
+    "nombreEquipo": "Televisor Samsung UN65U8200FKXZL",
+    "tipo": "Video",
+    "descripcion": "Incluye soporte a pared fijo y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2026-413243",
+    "nombreEquipo": "Televisor Samsung UN65U8200FKXZL",
+    "tipo": "Video",
+    "descripcion": "Incluye soporte a pared fijo y control remoto.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2020-374982",
+    "nombreEquipo": "Kit de Iluminación",
+    "tipo": "Accesorio",
+    "descripcion": "Incluye softbox, trípodes, telones, etc.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  },
+  {
+    "codigoEquipo": "A-2020-374983",
+    "nombreEquipo": "Paneles LED Limostudio 600",
+    "tipo": "Accesorio",
+    "descripcion": "Paquete de 2 paneles.",
+    "estado": "Disponible",
+    "requiereAutorizacionDocente": true
+  }
+]

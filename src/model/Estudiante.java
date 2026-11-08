@@ -1,17 +1,22 @@
 package model;
 
+import java.util.List;
+
 public class Estudiante extends Usuario{
     private String codigoEstudiantil;
     private String correoInstitucional;
     private int contadorStrikes;
     private boolean estaSancionado;
 
-    public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado) {
+    private List<Sancion> historialSanciones;
+
+    public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
         super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia, firmaDigital);
         this.codigoEstudiantil = codigoEstudiantil;
         this.correoInstitucional = correoInstitucional;
         this.contadorStrikes = contadorStrikes;
         this.estaSancionado = estaSancionado;
+        this.historialSanciones = historialSanciones;
     }
 
     public String getCodigoEstudiantil() {
@@ -46,6 +51,14 @@ public class Estudiante extends Usuario{
         this.estaSancionado = estaSancionado;
     }
 
+    public List<Sancion> getHistorialSanciones() {
+        return historialSanciones;
+    }
+
+    public void setHistorialSanciones(List<Sancion> historialSanciones) {
+        this.historialSanciones = historialSanciones;
+    }
+
     @Override
     public String toString() {
         return "Estudiante{" +
@@ -53,6 +66,7 @@ public class Estudiante extends Usuario{
                 ", correoInstitucional='" + correoInstitucional + '\'' +
                 ", contadorStrikes=" + contadorStrikes +
                 ", estaSancionado=" + estaSancionado +
+                ", historialSanciones=" + historialSanciones +
                 '}';
     }
 }
