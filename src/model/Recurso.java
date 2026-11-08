@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Map;
+
 public abstract class Recurso {
     private String codigoEquipo;
     private String descripcion;
@@ -13,6 +15,12 @@ public abstract class Recurso {
         this.estado = estado;
         this.requiereAutorizacionDocente = requiereAutorizacionDocente;
         this.ubicacionActual = ubicacionActual;
+    }
+
+    public abstract Map<String, String> getDatosAutocompletar();
+
+    public boolean consultarDisponibilidad(){
+        return "DISPONIBLE".equalsIgnoreCase(this.estado);
     }
 
     public String getCodigoEquipo() {

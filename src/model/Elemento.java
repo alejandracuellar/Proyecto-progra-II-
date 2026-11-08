@@ -1,5 +1,8 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Elemento extends Recurso{
 
     private String marca;
@@ -49,12 +52,19 @@ public class Elemento extends Recurso{
     }
 
     @Override
-    public String toString() {
-        return "Elemento{" +
-                "marca='" + marca + '\'' +
-                ", numeroSerie='" + numeroSerie + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", especificacionesAdicionales='" + especificacionesAdicionales + '\'' +
-                '}';
+    public Map<String, String> getDatosAutocompletar() {
+        Map<String, String> datos = new HashMap<>();
+        datos.put("codigoEquipo", getCodigoEquipo());
+        datos.put("descripcion", getDescripcion());
+        datos.put("marca", this.marca);
+        datos.put("numeroSerie", this.numeroSerie);
+        datos.put("categoria", this.categoria);
+        datos.put("especificacionesAdicionales", this.especificacionesAdicionales);
+        datos.put("estado", getEstado());
+        datos.put("requiereAutorizacionDocente", String.valueOf(isRequiereAutorizacionDocente()));
+        if (getUbicacionActual() != null) {
+            datos.put("ubicacionActual", String.valueOf(getUbicacionActual()));
+        }
+        return datos;
     }
 }

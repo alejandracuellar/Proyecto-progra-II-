@@ -13,7 +13,7 @@ public class Sancion {
     public Sancion(String idSancion, LocalDateTime fechaInicio, LocalDateTime fechaFin, String motivo, int numeroStrikes, boolean activa) {
         this.idSancion = idSancion;
         this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.fechaFin = fechaInicio.plusDays(15); //Ejemplo 15 dias de sancion
         this.motivo = motivo;
         this.numeroStrikes = numeroStrikes;
         this.activa = activa;
@@ -75,7 +75,7 @@ public class Sancion {
                 ", fechaFin=" + fechaFin +
                 ", motivo='" + motivo + '\'' +
                 ", numeroStrikes=" + numeroStrikes +
-                ", activa=" + activa +
+                ", activa=" + (activa ? "ACTIVA" : "INACTIVA") +
                 '}';
     }
 }

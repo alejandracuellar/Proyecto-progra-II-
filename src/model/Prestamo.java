@@ -13,14 +13,15 @@ public class Prestamo {
     private String estadoPrestamo;
     private String observaciones;
     private List<Recurso> equiposSolicitados;
-
-
-    // Relaciones según el UML
     private Usuario usuarioSolicitante;
     private FuncionarioAudiovisuales funcionarioEntrega;
     private FuncionarioAudiovisuales funcionarioRecibe;
+    private Docente docenteAval;
 
-    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante, FuncionarioAudiovisuales funcionarioEntrega, FuncionarioAudiovisuales funcionarioRecibe) {
+    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion,
+                    LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion,
+                    String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante,
+                    FuncionarioAudiovisuales funcionarioEntrega, FuncionarioAudiovisuales funcionarioRecibe, Docente docenteAval) {
         this.codigoFormatoFisico = codigoFormatoFisico;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaEjecucion = fechaEjecucion;
@@ -33,6 +34,7 @@ public class Prestamo {
         this.usuarioSolicitante = usuarioSolicitante;
         this.funcionarioEntrega = funcionarioEntrega;
         this.funcionarioRecibe = funcionarioRecibe;
+        this.docenteAval = docenteAval;
     }
 
     public String getCodigoFormatoFisico() {
@@ -131,6 +133,14 @@ public class Prestamo {
         this.funcionarioRecibe = funcionarioRecibe;
     }
 
+    public Docente getDocenteAval() {
+        return docenteAval;
+    }
+
+    public void setDocenteAval(Docente docenteAval) {
+        this.docenteAval = docenteAval;
+    }
+
     @Override
     public String toString() {
         return "Prestamo{" +
@@ -144,8 +154,9 @@ public class Prestamo {
                 ", observaciones='" + observaciones + '\'' +
                 ", equiposSolicitados=" + equiposSolicitados +
                 ", usuarioSolicitante=" + usuarioSolicitante +
-                ", entregadoPor=" + funcionarioEntrega +
-                ", recibidoPor=" + funcionarioRecibe +
+                ", funcionarioEntrega=" + funcionarioEntrega +
+                ", funcionarioRecibe=" + funcionarioRecibe +
+                ", docenteAval=" + docenteAval +
                 '}';
     }
 }

@@ -1,6 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Auditorio {
     private String nombreAuditorio;
@@ -12,7 +15,7 @@ public class Auditorio {
         this.nombreAuditorio = nombreAuditorio;
         this.capacidad = capacidad;
         this.ubicacion = ubicacion;
-        this.horariosDisponibles = horariosDisponibles;
+        this.horariosDisponibles = new ArrayList<>();
     }
 
     public String getNombreAuditorio() {
@@ -47,13 +50,11 @@ public class Auditorio {
         this.horariosDisponibles = horariosDisponibles;
     }
 
-    @Override
-    public String toString() {
-        return "Auditorio{" +
-                "nombreAuditorio='" + nombreAuditorio + '\'' +
-                ", capacidad=" + capacidad +
-                ", ubicacion=" + ubicacion +
-                ", horariosDisponibles=" + horariosDisponibles +
-                '}';
+    public Map<String, String> getDatosAutocompletar() {
+        Map<String, String> datos = new HashMap<>();
+        datos.put("nombreAuditorio", this.nombreAuditorio);
+        datos.put("capacidad", String.valueOf(this.capacidad));
+        datos.put("ubicacion", this.ubicacion);
+        return datos;
     }
 }
