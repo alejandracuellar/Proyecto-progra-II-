@@ -1,17 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Estudiante extends Usuario{
     private String codigoEstudiantil;
     private String correoInstitucional;
     private int contadorStrikes;
     private boolean estaSancionado;
-
     private List<Sancion> historialSanciones;
 
-    public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
-        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia, firmaDigital);
+    public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
+        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependencia, firmaDigital);
         this.codigoEstudiantil = codigoEstudiantil;
         this.correoInstitucional = correoInstitucional;
         this.contadorStrikes = contadorStrikes;
@@ -60,13 +62,31 @@ public class Estudiante extends Usuario{
     }
 
     @Override
-    public String toString() {
-        return "Estudiante{" +
-                "codigoEstudiantil='" + codigoEstudiantil + '\'' +
-                ", correoInstitucional='" + correoInstitucional + '\'' +
-                ", contadorStrikes=" + contadorStrikes +
-                ", estaSancionado=" + estaSancionado +
-                ", historialSanciones=" + historialSanciones +
-                '}';
+    public Map<String, String> getDatosAutocompletar(){
+        Map<String, String> datos = new HashMap<>();
+        datos.put("nombre completo", getNombreCompleto());
+        datos.put("documento de identidad", getDocumentoIdentidad());
+        datos.put("telefono", getTelefono());
+        datos.put("escuela o dependencia", getEscuelaDependencia());
+        datos.put("firma digital", getFirmaDigital());
+        datos.put("codigo estudiantil", this.codigoEstudiantil);
+        datos.put("correo institucional", this.correoInstitucional);
+        return datos;
+    }
+
+    @Override
+    public boolean puedeSolicitarPrestamo(){
+        return !estaSancionado && contadorStrikes <3;
+    }
+    public void incrementarStrike() {
+        this.contadorStrikes++;
+        if (this.contadorStrikes >= 3) {
+            this.estaSancionado = true;
+        }
+    }
+
+    public void reiniciarStrikes() {
+        this.contadorStrikes = 0;
+        this.estaSancionado = false;
     }
 }

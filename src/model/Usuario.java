@@ -1,21 +1,26 @@
 package model;
 
+import java.util.Map;
+
 public abstract class Usuario {
     private String id;
     private String documentoIdentidad;
     private String nombreCompleto;
     private String telefono;
-    private String escuelaDependecia;
+    private String escuelaDependencia;
     private String firmaDigital;
 
-    public Usuario(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital) {
+    public Usuario(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital) {
         this.id = id;
         this.documentoIdentidad = documentoIdentidad;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
-        this.escuelaDependecia = escuelaDependecia;
+        this.escuelaDependencia = escuelaDependencia;
         this.firmaDigital = firmaDigital;
     }
+
+    public abstract Map<String, String> getDatosAutocompletar();
+    public abstract boolean puedeSolicitarPrestamo();
 
     public String getId() {
         return id;
@@ -49,12 +54,12 @@ public abstract class Usuario {
         this.telefono = telefono;
     }
 
-    public String getEscuelaDependecia() {
-        return escuelaDependecia;
+    public String getEscuelaDependencia() {
+        return escuelaDependencia;
     }
 
-    public void setEscuelaDependecia(String escuelaDependecia) {
-        this.escuelaDependecia = escuelaDependecia;
+    public void setEscuelaDependencia(String escuelaDependencia) {
+        this.escuelaDependencia = escuelaDependencia;
     }
 
     public String getFirmaDigital() {
@@ -63,17 +68,5 @@ public abstract class Usuario {
 
     public void setFirmaDigital(String firmaDigital) {
         this.firmaDigital = firmaDigital;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id='" + id + '\'' +
-                ", documentoIdentidad='" + documentoIdentidad + '\'' +
-                ", nombreCompleto='" + nombreCompleto + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", escuelaDependecia='" + escuelaDependecia + '\'' +
-                ", firmaDigital='" + firmaDigital + '\'' +
-                '}';
     }
 }
