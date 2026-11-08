@@ -4,6 +4,8 @@ public class FuncionarioAudiovisuales {
     private String id;
     private String nombre;
 
+    public FuncionarioAudiovisuales() {}
+
     public FuncionarioAudiovisuales(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;

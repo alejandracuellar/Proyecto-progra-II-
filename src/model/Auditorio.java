@@ -11,41 +11,38 @@ public class Auditorio {
     private String ubicacion;
     private List<HorarioDisponibilidad> horariosDisponibles;
 
+    public Auditorio() {
+        this.horariosDisponibles = new ArrayList<>();
+    }
+
     public Auditorio(String nombreAuditorio, int capacidad, String ubicacion, List<HorarioDisponibilidad> horariosDisponibles) {
         this.nombreAuditorio = nombreAuditorio;
         this.capacidad = capacidad;
         this.ubicacion = ubicacion;
-        this.horariosDisponibles = new ArrayList<>();
+        this.horariosDisponibles = (horariosDisponibles != null) ? horariosDisponibles : new ArrayList<>();
     }
 
     public String getNombreAuditorio() {
         return nombreAuditorio;
     }
-
     public void setNombreAuditorio(String nombreAuditorio) {
         this.nombreAuditorio = nombreAuditorio;
     }
-
     public int getCapacidad() {
         return capacidad;
     }
-
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-
     public String getUbicacion() {
         return ubicacion;
     }
-
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-
     public List<HorarioDisponibilidad> getHorariosDisponibles() {
         return horariosDisponibles;
     }
-
     public void setHorariosDisponibles(List<HorarioDisponibilidad> horariosDisponibles) {
         this.horariosDisponibles = horariosDisponibles;
     }

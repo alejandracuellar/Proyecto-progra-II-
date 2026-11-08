@@ -14,6 +14,8 @@ public class Recurso {
     private String categoria;
     private String especificacionesAdicionales;
 
+    public Recurso() {}
+
     public Recurso(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente,
                    Ubicacion ubicacionActual, String marca, String numeroSerie, String categoria, String especificacionesAdicionales) {
         this.codigoEquipo = codigoEquipo;

@@ -10,6 +10,8 @@ public abstract class Usuario {
     private String escuelaDependencia;
     private String firmaDigital;
 
+    public Usuario() {}
+
     public Usuario(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital) {
         this.id = id;
         this.documentoIdentidad = documentoIdentidad;

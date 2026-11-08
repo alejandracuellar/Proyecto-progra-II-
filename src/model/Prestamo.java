@@ -18,6 +18,8 @@ public class Prestamo {
     private FuncionarioAudiovisuales funcionarioRecibe;
     private Docente docenteAval;
 
+    public Prestamo(){}
+
     public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion,
                     LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion,
                     String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante,

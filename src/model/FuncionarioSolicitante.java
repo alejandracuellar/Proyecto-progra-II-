@@ -10,6 +10,8 @@ public class FuncionarioSolicitante extends Usuario{
     private String cargo;
     private String dependencia;
 
+    public FuncionarioSolicitante() { super(); }
+
     public FuncionarioSolicitante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoFuncionario, String correoInstitucional, String cargo, String dependencia) {
         super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia, firmaDigital);
         this.codigoFuncionario = codigoFuncionario;

@@ -12,6 +12,11 @@ public class Estudiante extends Usuario{
     private boolean estaSancionado;
     private List<Sancion> historialSanciones;
 
+    public Estudiante() {
+        super();
+        this.historialSanciones = new ArrayList<>();
+    }
+
     public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
         super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependencia, firmaDigital);
         this.codigoEstudiantil = codigoEstudiantil;
