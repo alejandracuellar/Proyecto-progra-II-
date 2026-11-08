@@ -21,7 +21,6 @@ public class PersistenciaJson {
     private String ruta2 = "inventario.json";
 
     public ArrayList<Prestamo> leer() {
-
         File archivo = new File(ruta);
         if(!archivo.exists()) {
             return new ArrayList<>();
@@ -39,12 +38,11 @@ public class PersistenciaJson {
         try (FileWriter escritor = new FileWriter(ruta)) {
             gson.toJson(prestamos, escritor);
         } catch (IOException e) {
-            throw new RuntimeException (e);
+            throw new RuntimeException(e);
         }
     }
 
     public List<Recurso> leerInventario() {
-
         File archivo = new File(ruta2);
         if(!archivo.exists()) {
             return new ArrayList<>();
@@ -57,4 +55,15 @@ public class PersistenciaJson {
             throw new RuntimeException(e);
         }
     }
+
+    /* ESTE METODO NO SE SI DEJARLO O NO, PORQUE NO NECEISTAMOS QUE SE ESCRIBA EL INVENTARIO, CIERTO?
+    public void escribirInventario(List<Recurso> inventario) {
+        try (FileWriter escritor = new FileWriter(ruta2)) {
+            gson.toJson(inventario, escritor);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+     */
+
 }
