@@ -1,5 +1,8 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Docente extends Usuario{
 
     private String codigoDocente;
@@ -28,10 +31,20 @@ public class Docente extends Usuario{
     }
 
     @Override
-    public String toString() {
-        return "Docente{" +
-                "codigoDocente='" + codigoDocente + '\'' +
-                ", correoInstitucional='" + correoInstitucional + '\'' +
-                '}';
+    public Map<String, String> getDatosAutocompletar() {
+        Map<String, String> datos = new HashMap<>();
+        datos.put("nombre completo", getNombreCompleto());
+        datos.put("documento de identidad", getDocumentoIdentidad());
+        datos.put("telefono", getTelefono());
+        datos.put("escuela o dependencia", getEscuelaDependencia());
+        datos.put("firma digital", getFirmaDigital());
+        datos.put("codigo docente", this.codigoDocente);
+        datos.put("correo institucional", this.correoInstitucional);
+        return datos;
+    }
+
+    @Override
+    public boolean puedeSolicitarPrestamo() {
+        return true;
     }
 }
