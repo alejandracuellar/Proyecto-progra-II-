@@ -17,10 +17,10 @@ public class Prestamo {
 
     // Relaciones según el UML
     private Usuario usuarioSolicitante;
-    private FuncionarioAudiovisuales entregadoPor;
-    private FuncionarioAudiovisuales recibidoPor;
+    private FuncionarioAudiovisuales funcionarioEntrega;
+    private FuncionarioAudiovisuales funcionarioRecibe;
 
-    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante, FuncionarioAudiovisuales entregadoPor, FuncionarioAudiovisuales recibidoPor) {
+    public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion, LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion, String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante, FuncionarioAudiovisuales funcionarioEntrega, FuncionarioAudiovisuales funcionarioRecibe) {
         this.codigoFormatoFisico = codigoFormatoFisico;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaEjecucion = fechaEjecucion;
@@ -31,8 +31,8 @@ public class Prestamo {
         this.observaciones = observaciones;
         this.equiposSolicitados = equiposSolicitados;
         this.usuarioSolicitante = usuarioSolicitante;
-        this.entregadoPor = entregadoPor;
-        this.recibidoPor = recibidoPor;
+        this.funcionarioEntrega = funcionarioEntrega;
+        this.funcionarioRecibe = funcionarioRecibe;
     }
 
     public String getCodigoFormatoFisico() {
@@ -115,20 +115,20 @@ public class Prestamo {
         this.usuarioSolicitante = usuarioSolicitante;
     }
 
-    public FuncionarioAudiovisuales getEntregadoPor() {
-        return entregadoPor;
+    public FuncionarioAudiovisuales getFuncionarioEntrega() {
+        return funcionarioEntrega;
     }
 
-    public void setEntregadoPor(FuncionarioAudiovisuales entregadoPor) {
-        this.entregadoPor = entregadoPor;
+    public void setFuncionarioEntrega(FuncionarioAudiovisuales funcionarioEntrega) {
+        this.funcionarioEntrega = funcionarioEntrega;
     }
 
-    public FuncionarioAudiovisuales getRecibidoPor() {
-        return recibidoPor;
+    public FuncionarioAudiovisuales getFuncionarioRecibe() {
+        return funcionarioRecibe;
     }
 
-    public void setRecibidoPor(FuncionarioAudiovisuales recibidoPor) {
-        this.recibidoPor = recibidoPor;
+    public void setFuncionarioRecibe(FuncionarioAudiovisuales funcionarioRecibe) {
+        this.funcionarioRecibe = funcionarioRecibe;
     }
 
     @Override
@@ -144,8 +144,8 @@ public class Prestamo {
                 ", observaciones='" + observaciones + '\'' +
                 ", equiposSolicitados=" + equiposSolicitados +
                 ", usuarioSolicitante=" + usuarioSolicitante +
-                ", entregadoPor=" + entregadoPor +
-                ", recibidoPor=" + recibidoPor +
+                ", entregadoPor=" + funcionarioEntrega +
+                ", recibidoPor=" + funcionarioRecibe +
                 '}';
     }
 }

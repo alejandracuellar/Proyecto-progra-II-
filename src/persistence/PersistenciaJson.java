@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PersistenciaJson {
 
@@ -42,13 +43,13 @@ public class PersistenciaJson {
         }
     }
 
-    public ArrayList<Recurso> leerInventario() {
+    public List<Recurso> leerInventario() {
 
         File archivo = new File(ruta2);
         if(!archivo.exists()) {
             return new ArrayList<>();
         }
-        Type tipoLista = new TypeToken<ArrayList<Prestamo>>() {}.getType();
+        Type tipoLista = new TypeToken<List<Recurso>>() {}.getType();
 
         try (FileReader lector = new FileReader(ruta2)) {
             return gson.fromJson(lector, tipoLista);
