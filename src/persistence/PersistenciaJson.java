@@ -56,7 +56,6 @@ public class PersistenciaJson {
         }
     }
 
-    /* ESTE METODO NO SE SI DEJARLO O NO, PORQUE NO NECEISTAMOS QUE SE ESCRIBA EL INVENTARIO, CIERTO?
     public void escribirInventario(List<Recurso> inventario) {
         try (FileWriter escritor = new FileWriter(ruta2)) {
             gson.toJson(inventario, escritor);
@@ -64,6 +63,6 @@ public class PersistenciaJson {
             throw new RuntimeException(e);
         }
     }
-     */
+
 
 }
