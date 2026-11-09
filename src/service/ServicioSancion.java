@@ -1,14 +1,22 @@
 package service;
 
+import model.Estudiante;
 import model.Sancion;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class ServicioSancion {
 
-    private ArrayList<Sancion> listaSanciones;
+    public void aplicarStrikeYSancionSiAplica(Estudiante estudiante, LocalDateTime fechaMomento) {
+        estudiante.incrementarStrike();
 
-    public ServicioSancion(ArrayList<Sancion> listaSanciones) {
-        this.listaSanciones = (listaSanciones != null) ? listaSanciones : new ArrayList<>();
+        if (estudiante.isEstaSancionado()) {
+            Sancion nuevaSancion = new Sancion(
+                    "SAN-" + System.currentTimeMillis(),
+                    fechaMomento,
+                    "Sanción por acumulación de 3 strikes (Devolución tardía de equipos).",
+                    estudiante.getContadorStrikes()
+            );
+            estudiante.getHistorialSanciones().add(nuevaSancion);
+        }
     }
-
 }
