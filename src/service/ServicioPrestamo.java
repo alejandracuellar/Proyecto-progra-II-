@@ -1,20 +1,15 @@
 package service;
 
 import model.Prestamo;
-import model.Recurso;
-import persistence.PersistenciaJson;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class ServicioPrestamo {
 
-    private PersistenciaJson persistenciaJson = new PersistenciaJson();
-    private ArrayList<Prestamo> prestamos;
-    private List<Recurso> recursos = new ArrayList<>();
+    private ArrayList<Prestamo> listaPrestamos;
 
-    public ServicioPrestamo(){
-        this.prestamos = persistenciaJson.leer();
-
+    public ServicioPrestamo(ArrayList<Prestamo> listaPrestamos) {
+        this.listaPrestamos = (listaPrestamos != null) ? listaPrestamos : new ArrayList<>();
     }
+
 }
