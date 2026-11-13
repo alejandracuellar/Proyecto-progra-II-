@@ -1,7 +1,7 @@
 package service;
 
 import model.*;
-import persistence.PersistenciaJson;
+import persistence.PersistenciaInventario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class ServicioPrestamo {
 
     private ArrayList<Prestamo> prestamos;
-    private final PersistenciaJson persistencia;
+    private final PersistenciaInventario persistencia;
     private final ServicioRecurso servicioRecurso;
     private final ServicioAuditorio servicioAuditorio;
     private final ServicioEstudiante servicioEstudiante;
@@ -19,7 +19,7 @@ public class ServicioPrestamo {
     private final ServicioFuncionarioAudiovisuales servicioFuncionarioAudiovisuales;
     private final ServicioSancion servicioSancion;
 
-    public ServicioPrestamo(PersistenciaJson persistencia, ServicioRecurso servicioRecurso,
+    public ServicioPrestamo(PersistenciaInventario persistencia, ServicioRecurso servicioRecurso,
                             ServicioAuditorio servicioAuditorio, ServicioEstudiante servicioEstudiante,
                             ServicioDocente servicioDocente, ServicioFuncionarioSolicitante servicioFuncionarioSolicitante,
                             ServicioFuncionarioAudiovisuales servicioFuncionarioAudiovisuales, ServicioSancion servicioSancion) {

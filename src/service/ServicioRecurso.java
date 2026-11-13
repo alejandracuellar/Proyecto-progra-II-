@@ -1,16 +1,16 @@
 package service;
 
 import model.Recurso;
-import persistence.PersistenciaJson;
+import persistence.PersistenciaInventario;
 
 import java.util.List;
 import java.util.Map;
 
 public class ServicioRecurso {
     private List<Recurso> inventario;
-    private final PersistenciaJson persistencia;
+    private final PersistenciaInventario persistencia;
 
-    public ServicioRecurso(PersistenciaJson persistencia) {
+    public ServicioRecurso(PersistenciaInventario persistencia) {
         this.persistencia = persistencia;
         this.inventario = persistencia.leerInventario();
     }

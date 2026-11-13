@@ -10,14 +10,14 @@ import model.Sancion;
 import model.Ubicacion;
 
 
-import persistence.PersistenciaJson;
+import persistence.PersistenciaInventario;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        PersistenciaJson persistencia = new PersistenciaJson();
+        PersistenciaInventario persistencia = new PersistenciaInventario();
 
         Type tipoDocentes = new TypeToken<ArrayList<Docente>>() {
         }.getType();
