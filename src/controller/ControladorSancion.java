@@ -1,4 +1,4 @@
 package controller;
+public class ControladorSancion{
 
-public class ControladorSancion {
 }

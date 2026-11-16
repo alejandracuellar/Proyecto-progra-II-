@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class PersistenciaAuditorio {
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private String ruta = "auditorios.json";
+    private String ruta = "src/datos/auditorios.json";
 
     public ArrayList<Auditorio> leer() {
 

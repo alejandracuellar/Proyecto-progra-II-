@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PersistenciaFuncionarioSolicitante {
 
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private String ruta = "funcionarios_solicitantes.json";
+    private String ruta = "src/datos/funcionarios_solicitantes.json";
 
     public ArrayList<FuncionarioSolicitante> leer() {
 

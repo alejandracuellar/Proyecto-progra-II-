@@ -1,28 +1,35 @@
 package service;
 
 import model.Ubicacion;
+import persistence.PersistenciaUbicacion;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServicioUbicacion {
+
+    private PersistenciaUbicacion persistencia;
     private List<Ubicacion> ubicaciones;
 
     public ServicioUbicacion() {
-        this.ubicaciones = new ArrayList<>();
+        this.persistencia = new PersistenciaUbicacion();
+        this.ubicaciones = persistencia.leer();
     }
 
-    public Ubicacion buscarPorBloqueYSalon(String bloque, String salon) throws Exception {
+    public List<Ubicacion> obtenerTodasLasUbicaciones() {
+        return this.ubicaciones;
+    }
+
+    public boolean agregarUbicacion(String bloque, String salon) {
         for (Ubicacion u : ubicaciones) {
-            if (u.getBloqueEdificio().equalsIgnoreCase(bloque) && u.getNumeroSalon().equalsIgnoreCase(salon)) {
-                return u;
+            if (u.getBloqueEdificio().equalsIgnoreCase(bloque) &&
+                    u.getNumeroSalon().equalsIgnoreCase(salon)) {
+                return false;
             }
         }
-        throw new Exception("La ubicación Bloque " + bloque + " - Salón " + salon + " no existe.");
-    }
 
-    public void registrarUbicacion(Ubicacion ubicacion) {
-        this.ubicaciones.add(ubicacion);
+        Ubicacion nuevaUbicacion = new Ubicacion(bloque, salon);
+        ubicaciones.add(nuevaUbicacion);
+        persistencia.escribir((ArrayList<Ubicacion>) ubicaciones);
+        return true;
     }
-
-    public List<Ubicacion> getUbicaciones() { return ubicaciones; }
 }

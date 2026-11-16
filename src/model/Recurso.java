@@ -6,7 +6,7 @@ import java.util.Map;
 public class Recurso {
     private String codigoEquipo;
     private String descripcion;
-    private String estado;
+    private EstadoRecurso estadoRecurso;
     private boolean requiereAutorizacionDocente;
     private Ubicacion ubicacionActual;
     private String marca;
@@ -16,11 +16,11 @@ public class Recurso {
 
     public Recurso() {}
 
-    public Recurso(String codigoEquipo, String descripcion, String estado, boolean requiereAutorizacionDocente,
+    public Recurso(String codigoEquipo, String descripcion, EstadoRecurso estadoRecurso, boolean requiereAutorizacionDocente,
                    Ubicacion ubicacionActual, String marca, String numeroSerie, String categoria, String especificacionesAdicionales) {
         this.codigoEquipo = codigoEquipo;
         this.descripcion = descripcion;
-        this.estado = estado;
+        this.estadoRecurso = estadoRecurso;
         this.requiereAutorizacionDocente = requiereAutorizacionDocente;
         this.ubicacionActual = ubicacionActual;
         this.marca = marca;
@@ -30,7 +30,7 @@ public class Recurso {
     }
 
     public boolean consultarDisponibilidad() {
-        return "DISPONIBLE".equalsIgnoreCase(this.estado);
+                return this.estadoRecurso == EstadoRecurso.DISPONIBLE;
     }
 
     public Map<String, String> getDatosAutocompletar() {
@@ -41,10 +41,13 @@ public class Recurso {
         datos.put("numeroSerie", this.numeroSerie);
         datos.put("categoria", this.categoria);
         datos.put("especificacionesAdicionales", this.especificacionesAdicionales);
-        datos.put("estado", this.estado);
+
+
+        datos.put("estado", this.estadoRecurso != null ? this.estadoRecurso.name() : "");
         datos.put("requiereAutorizacionDocente", String.valueOf(this.requiereAutorizacionDocente));
+
         if (this.ubicacionActual != null) {
-            datos.put("ubicacionActual", String.valueOf(this.ubicacionActual));
+            datos.put("ubicacionActual", this.ubicacionActual.toString());
         }
         return datos;
     }
@@ -64,45 +67,59 @@ public class Recurso {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public String getEstado() {
-        return estado;
+
+    public EstadoRecurso getEstadoRecurso() {
+        return estadoRecurso;
     }
-    public void setEstado(String estado) {
-        this.estado = estado;
+
+    public void setEstadoRecurso(EstadoRecurso estadoRecurso) {
+        this.estadoRecurso = estadoRecurso;
     }
+
     public boolean isRequiereAutorizacionDocente() {
         return requiereAutorizacionDocente;
     }
+
     public void setRequiereAutorizacionDocente(boolean requiereAutorizacionDocente) {
         this.requiereAutorizacionDocente = requiereAutorizacionDocente;
     }
+
     public Ubicacion getUbicacionActual() {
         return ubicacionActual;
     }
+
     public void setUbicacionActual(Ubicacion ubicacionActual) {
         this.ubicacionActual = ubicacionActual;
     }
+
     public String getMarca() {
         return marca;
     }
+
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
     public String getNumeroSerie() {
         return numeroSerie;
     }
+
     public void setNumeroSerie(String numeroSerie) {
         this.numeroSerie = numeroSerie;
     }
+
     public String getCategoria() {
         return categoria;
     }
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
     public String getEspecificacionesAdicionales() {
         return especificacionesAdicionales;
     }
+
     public void setEspecificacionesAdicionales(String especificacionesAdicionales) {
         this.especificacionesAdicionales = especificacionesAdicionales;
     }

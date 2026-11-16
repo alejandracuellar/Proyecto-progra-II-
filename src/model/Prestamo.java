@@ -10,20 +10,20 @@ public class Prestamo {
     private LocalDateTime fechaDevolucionEsperada;
     private LocalDateTime fechaDevolucionReal;
     private String destinoUbicacion;
-    private String estadoPrestamo;
+    private EstadoPrestamo estadoPrestamo;
     private String observaciones;
     private List<Recurso> equiposSolicitados;
     private Usuario usuarioSolicitante;
     private FuncionarioAudiovisuales funcionarioEntrega;
     private FuncionarioAudiovisuales funcionarioRecibe;
-    private Docente docenteAval;
+    private Docente docenteResponsable;
 
     public Prestamo(){}
 
     public Prestamo(String codigoFormatoFisico, LocalDateTime fechaSolicitud, LocalDateTime fechaEjecucion,
                     LocalDateTime fechaDevolucionEsperada, LocalDateTime fechaDevolucionReal, String destinoUbicacion,
-                    String estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante,
-                    FuncionarioAudiovisuales funcionarioEntrega, FuncionarioAudiovisuales funcionarioRecibe, Docente docenteAval) {
+                    EstadoPrestamo estadoPrestamo, String observaciones, List<Recurso> equiposSolicitados, Usuario usuarioSolicitante,
+                    FuncionarioAudiovisuales funcionarioEntrega, FuncionarioAudiovisuales funcionarioRecibe, Docente docenteResponsable) {
         this.codigoFormatoFisico = codigoFormatoFisico;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaEjecucion = fechaEjecucion;
@@ -36,7 +36,7 @@ public class Prestamo {
         this.usuarioSolicitante = usuarioSolicitante;
         this.funcionarioEntrega = funcionarioEntrega;
         this.funcionarioRecibe = funcionarioRecibe;
-        this.docenteAval = docenteAval;
+        this.docenteResponsable = docenteResponsable;
     }
 
     public String getCodigoFormatoFisico() {
@@ -87,11 +87,11 @@ public class Prestamo {
         this.destinoUbicacion = destinoUbicacion;
     }
 
-    public String getEstadoPrestamo() {
+    public EstadoPrestamo getEstadoPrestamo() {
         return estadoPrestamo;
     }
 
-    public void setEstadoPrestamo(String estadoPrestamo) {
+    public void setEstadoPrestamo(EstadoPrestamo estadoPrestamo) {
         this.estadoPrestamo = estadoPrestamo;
     }
 
@@ -135,12 +135,12 @@ public class Prestamo {
         this.funcionarioRecibe = funcionarioRecibe;
     }
 
-    public Docente getDocenteAval() {
-        return docenteAval;
+    public Docente getDocenteResponsable() {
+        return docenteResponsable;
     }
 
-    public void setDocenteAval(Docente docenteAval) {
-        this.docenteAval = docenteAval;
+    public void setDocenteResponsable(Docente docenteResponsable) {
+        this.docenteResponsable = docenteResponsable;
     }
 
     @Override
@@ -158,7 +158,7 @@ public class Prestamo {
                 ", usuarioSolicitante=" + usuarioSolicitante +
                 ", funcionarioEntrega=" + funcionarioEntrega +
                 ", funcionarioRecibe=" + funcionarioRecibe +
-                ", docenteAval=" + docenteAval +
+                ", docenteAval=" + docenteResponsable +
                 '}';
     }
 }

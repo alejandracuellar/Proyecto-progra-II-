@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PersistenciaFuncionarioAudiovisuales {
 
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private String ruta = "funcionarios_audiovisuales.json";
+    private String ruta = "src/datos/funcionarios_audiovisuales.json";
 
     public ArrayList<FuncionarioAudiovisuales> leer() {
 

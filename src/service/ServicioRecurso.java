@@ -1,47 +1,71 @@
 package service;
 
+import model.EstadoRecurso;
 import model.Recurso;
+import model.Ubicacion;
 import persistence.PersistenciaInventario;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class ServicioRecurso {
-    private List<Recurso> inventario;
-    private final PersistenciaInventario persistencia;
 
-    public ServicioRecurso(PersistenciaInventario persistencia) {
-        this.persistencia = persistencia;
-        this.inventario = persistencia.leerInventario();
+    private ArrayList<Recurso> recursos;
+    private PersistenciaInventario persistencia;
+
+    public ServicioRecurso() {
+        this.persistencia = new PersistenciaInventario();
+        this.recursos = persistencia.leer();
+
+        if (this.recursos == null) {
+            this.recursos = new ArrayList<>();
+        }
     }
 
-    public Recurso buscarPorCodigo(String codigo) throws Exception {
-        for (Recurso r : inventario) {
-            if (r.getCodigoEquipo().equalsIgnoreCase(codigo)) {
-                return r;
+    public void agregarRecurso(Recurso recurso) {
+        this.recursos.add(recurso);
+    }
+
+    public Recurso buscarPorCodigo(String codigoEquipo) {
+        for (Recurso recurso : recursos) {
+            if (recurso.getCodigoEquipo().equalsIgnoreCase(codigoEquipo)) {
+                return recurso;
             }
         }
-        throw new Exception("El recurso con código '" + codigo + "' no existe en el inventario.");
+        return null;
     }
 
-    public Map<String, String> autocompletarRecurso(String codigo) throws Exception {
-        Recurso recurso = buscarPorCodigo(codigo);
-        return recurso.getDatosAutocompletar();
+    public ArrayList<Recurso> obtenerTodos() {
+        return this.recursos;
     }
 
-    public void agregarEquipoInventario(Recurso recurso) throws Exception {
-        for (Recurso r : inventario) {
-            if (r.getCodigoEquipo().equalsIgnoreCase(recurso.getCodigoEquipo())) {
-                throw new Exception("Ya existe un equipo registrado con el código: " + recurso.getCodigoEquipo());
-            }
+
+    public boolean consultarDisponibilidad(String codigoEquipo) {
+        Recurso recurso = buscarPorCodigo(codigoEquipo);
+
+        if (recurso != null) {
+            return recurso.getEstadoRecurso() == EstadoRecurso.DISPONIBLE;
         }
-        this.inventario.add(recurso);
-        persistencia.escribirInventario(this.inventario);
+        return false;
     }
 
-    public void guardarInventario() {
-        persistencia.escribirInventario(this.inventario);
+    public Ubicacion consultarUbicacionActual(String codigoEquipo) {
+        Recurso recurso = buscarPorCodigo(codigoEquipo);
+
+        if (recurso != null) {
+            return recurso.getUbicacionActual();
+        }
+        return null;
     }
 
-    public List<Recurso> getInventario() { return inventario; }
+    public void cambiarEstadoRecurso(String codigoEquipo, EstadoRecurso nuevoEstado) {
+        Recurso recurso = buscarPorCodigo(codigoEquipo);
+        if (recurso != null) {
+            recurso.setEstadoRecurso(nuevoEstado);
+        }
+    }
+
+
+    public void guardarAlFinal() {
+        persistencia.escribir(this.recursos);
+    }
 }

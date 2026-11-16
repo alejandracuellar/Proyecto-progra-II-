@@ -10,11 +10,13 @@ public class Estudiante extends Usuario{
     private String correoInstitucional;
     private int contadorStrikes;
     private boolean estaSancionado;
-    private List<Sancion> historialSanciones;
+    private List<Sancion> sanciones;
+
+
 
     public Estudiante() {
         super();
-        this.historialSanciones = new ArrayList<>();
+        this.sanciones = new ArrayList<>();
     }
 
     public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
@@ -23,7 +25,7 @@ public class Estudiante extends Usuario{
         this.correoInstitucional = correoInstitucional;
         this.contadorStrikes = contadorStrikes;
         this.estaSancionado = estaSancionado;
-        this.historialSanciones = historialSanciones;
+        this.sanciones = historialSanciones;
     }
 
     public String getCodigoEstudiantil() {
@@ -58,12 +60,12 @@ public class Estudiante extends Usuario{
         this.estaSancionado = estaSancionado;
     }
 
-    public List<Sancion> getHistorialSanciones() {
-        return historialSanciones;
+    public List<Sancion> getSanciones() {
+        return sanciones;
     }
 
-    public void setHistorialSanciones(List<Sancion> historialSanciones) {
-        this.historialSanciones = historialSanciones;
+    public void setSanciones(List<Sancion> sanciones) {
+        this.sanciones = sanciones;
     }
 
     @Override
