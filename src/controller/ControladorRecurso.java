@@ -13,7 +13,7 @@ public class ControladorRecurso {
     private ServicioRecurso servicioRecurso;
     private ServicioUbicacion servicioUbicacion;
 
-    public ControladorRecurso(ServicioRecurso servicioRecurso) {
+    public ControladorRecurso(ServicioRecurso servicioRecurso, ServicioUbicacion servicioUbicacion) {
         this.servicioRecurso = servicioRecurso;
         this.servicioUbicacion = servicioUbicacion;
     }
