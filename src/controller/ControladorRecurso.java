@@ -4,15 +4,18 @@ import model.EstadoRecurso;
 import model.Recurso;
 import model.Ubicacion;
 import service.ServicioRecurso;
+import service.ServicioUbicacion;
 
 import java.util.List;
 
 public class ControladorRecurso {
 
     private ServicioRecurso servicioRecurso;
+    private ServicioUbicacion servicioUbicacion;
 
     public ControladorRecurso(ServicioRecurso servicioRecurso) {
         this.servicioRecurso = servicioRecurso;
+        this.servicioUbicacion = servicioUbicacion;
     }
 
     public String registrarRecurso(String codigoEquipo, String descripcion, boolean requiereAutorizacionDocente,
@@ -80,5 +83,17 @@ public class ControladorRecurso {
 
     public List<Recurso> listarTodos() {
         return servicioRecurso.obtenerTodos();
+    }
+
+    public List<Ubicacion> listarUbicaciones() {
+        return servicioUbicacion.obtenerTodasLasUbicaciones();
+    }
+
+    public String registrarUbicacion(String bloque, String salon) {
+        if (bloque == null || bloque.trim().isEmpty() || salon == null || salon.trim().isEmpty()) {
+            return "Error: El bloque y el salón son obligatorios.";
+        }
+        boolean agregada = servicioUbicacion.agregarUbicacion(bloque, salon);
+        return agregada ? "EXITO: Ubicación registrada." : "Error: Esa ubicación ya existe.";
     }
 }

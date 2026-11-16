@@ -12,6 +12,7 @@ public class ControladorMenu {
     private ServicioRecurso servicioRecurso;
     private ServicioSancion servicioSancion;
     private ServicioAuditorio servicioAuditorio;
+    private ServicioUbicacion servicioUbicacion;
 
     public ControladorMenu() {
         this.servicioEstudiante = new ServicioEstudiante();
@@ -22,6 +23,7 @@ public class ControladorMenu {
         this.servicioRecurso = new ServicioRecurso();
         this.servicioSancion = new ServicioSancion();
         this.servicioAuditorio = new ServicioAuditorio();
+        this.servicioUbicacion = new ServicioUbicacion();
     }
 
     public void abrirVentanaPrestamos() {

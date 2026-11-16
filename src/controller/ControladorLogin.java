@@ -6,8 +6,8 @@ public class ControladorLogin {
 
     private ServicioFuncionarioAudiovisuales servicioFuncionarioAudiovisuales;
 
-    public ControladorLogin() {
-        this.servicioFuncionarioAudiovisuales = new ServicioFuncionarioAudiovisuales();
+    public ControladorLogin(ServicioFuncionarioAudiovisuales servicioFuncionarioAudiovisuales) {
+        this.servicioFuncionarioAudiovisuales = servicioFuncionarioAudiovisuales;
     }
 
     public String iniciarSesion(String identificacion, String contrasena) {
