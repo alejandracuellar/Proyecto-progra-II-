@@ -2,6 +2,7 @@ package view;
 
 import controller.ControladorMenu;
 import controller.ControladorPrestamo;
+import controller.ControladorRecurso;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +22,8 @@ public class VistaMenuPrincipal extends JFrame {
     private JPanel panelContenidoDerecho;
     private CardLayout cardLayoutDerecho;
 
+    private PanelHistorialPrestamos panelHistorial;
+    private PanelEliminarEquipo panelEliminarEquipo;
 
     public VistaMenuPrincipal(){
         this(new ControladorMenu());
@@ -28,6 +31,11 @@ public class VistaMenuPrincipal extends JFrame {
 
     public VistaMenuPrincipal(ControladorMenu controladorMenu){
         this.controladorMenu = controladorMenu;
+
+        ControladorPrestamo ctrlPrestamo = controladorMenu.getControladorPrestamo();
+        ControladorRecurso ctrlRecurso = controladorMenu.getControladorRecurso();
+        this.panelHistorial = new PanelHistorialPrestamos(ctrlPrestamo);
+        this.panelEliminarEquipo = new PanelEliminarEquipo(ctrlRecurso);
 
         setTitle("Sistema De Gestión De Prestamo De Audiovisuales");
         setSize(1150,720);
@@ -59,16 +67,14 @@ public class VistaMenuPrincipal extends JFrame {
         panelContenidoDerecho.setPreferredSize(new Dimension(740,0));
         panelContenidoDerecho.setBackground(COLOR_FONDO_DERECHO);
 
-        ControladorPrestamo ctrlPrestamo = controladorMenu.getControladorPrestamo();
-        PanelHistorialPrestamos panelHistorial = new PanelHistorialPrestamos(ctrlPrestamo);
-
         panelContenidoDerecho.add(new PanelAgregarPrestamo(ctrlPrestamo), "AGREGAR_PRESTAMO");
         panelContenidoDerecho.add(new PanelDevolverPrestamo(ctrlPrestamo), "DEVOLVER_PRESTAMO");
         panelContenidoDerecho.add(new PanelConsultarPrestamo(ctrlPrestamo), "CONSULTAR_PRESTAMO");
         panelContenidoDerecho.add(panelHistorial, "HISTORIAL_PRESTAMOS");
+
         panelContenidoDerecho.add(crearPanelPlaceholder("Agregar usuario"), "AGREGAR_USUARIO");
 
-        panelContenidoDerecho.add(crearPanelPlaceholder("Eliminar equipo"), "ELIMINAR_EQUIPO");
+        panelContenidoDerecho.add(panelEliminarEquipo, "ELIMINAR_EQUIPO");
 
         panelContenidoDerecho.add(crearPanelPlaceholder("Agregar sanción"), "AGREGAR_SANCION");
         panelContenidoDerecho.add(crearPanelPlaceholder("Eliminar sanción"), "ELIMINAR_SANCION");
@@ -118,6 +124,7 @@ public class VistaMenuPrincipal extends JFrame {
         });
 
         btnEquipos.addActionListener(e -> {
+            panelEliminarEquipo.cargarTablaEquipos();
             cardLayoutCentral.show(panelSubmenuCentral, "SUB_EQUIPOS");
             cardLayoutDerecho.show(panelContenidoDerecho, "ELIMINAR_EQUIPO");
         });
@@ -150,7 +157,10 @@ public class VistaMenuPrincipal extends JFrame {
         btnAgregar.addActionListener(e -> cardLayoutDerecho.show(panelContenidoDerecho, "AGREGAR_PRESTAMO"));
         btnDevolver.addActionListener(e -> cardLayoutDerecho.show(panelContenidoDerecho, "DEVOLVER_PRESTAMO"));
         btnConsultar.addActionListener(e -> cardLayoutDerecho.show(panelContenidoDerecho, "CONSULTAR_PRESTAMO"));
-        btnHistorial.addActionListener(e -> cardLayoutDerecho.show(panelContenidoDerecho, "HISTORIAL_PRESTAMOS"));
+        btnHistorial.addActionListener(e -> {
+            panelHistorial.cargarHistorial();
+            cardLayoutDerecho.show(panelContenidoDerecho, "HISTORIAL_PRESTAMOS");
+        });
 
         panel.add(btnAgregar);
         panel.add(btnDevolver);
@@ -173,7 +183,10 @@ public class VistaMenuPrincipal extends JFrame {
         JPanel panel = crearBaseSubmenu("Equipos");
 
         JButton btnEliminar = crearBotonSubmenu("Eliminar equipo");
-        btnEliminar.addActionListener(e -> cardLayoutDerecho.show(panelContenidoDerecho, "ELIMINAR_EQUIPO"));
+        btnEliminar.addActionListener(e -> {
+            panelEliminarEquipo.cargarTablaEquipos();
+            cardLayoutDerecho.show(panelContenidoDerecho, "ELIMINAR_EQUIPO");
+        });
 
         panel.add(btnEliminar);
         return panel;

@@ -92,4 +92,24 @@ public class ControladorRecurso {
         boolean agregada = servicioUbicacion.agregarUbicacion(bloque, salon);
         return agregada ? "EXITO: Ubicación registrada." : "Error: Esa ubicación ya existe.";
     }
+
+    public String eliminarRecurso(String codigoEquipo) {
+        if (codigoEquipo == null || codigoEquipo.trim().isEmpty()) {
+            return "Error: Debe ingresar o seleccionar el código del equipo.";
+        }
+
+        Recurso recurso = servicioRecurso.buscarPorCodigo(codigoEquipo.trim());
+        if (recurso == null) {
+            return "Error: No existe ningún equipo con el código '" + codigoEquipo + "'.";
+        }
+
+        if (recurso.getEstadoRecurso() == EstadoRecurso.PRESTADO) {
+            return "Error: No se puede eliminar el equipo porque actualmente está PRESTADO.";
+        }
+
+        boolean eliminado = servicioRecurso.eliminarRecurso(codigoEquipo.trim());
+        return eliminado
+                ? "EXITO: El equipo '" + recurso.getDescripcion() + "' (" + codigoEquipo + ") fue eliminado del inventario."
+                : "Error: No se pudo eliminar el equipo.";
+    }
 }

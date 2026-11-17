@@ -64,6 +64,13 @@ public class ServicioRecurso {
         }
     }
 
+    public boolean eliminarRecurso(String codigoEquipo) {
+        Recurso recurso = buscarPorCodigo(codigoEquipo);
+        if (recurso != null) {
+            return this.recursos.remove(recurso);
+        }
+        return false;
+    }
 
     public void guardarAlFinal() {
         persistencia.escribir(this.recursos);
