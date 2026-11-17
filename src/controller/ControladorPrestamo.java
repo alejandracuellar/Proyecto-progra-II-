@@ -242,6 +242,25 @@ public class ControladorPrestamo {
         return servicioPrestamo.buscarPorCodigo(codigoFormatoFisico);
     }
 
+    public List<Prestamo> buscarPrestamosPorEquipo(String codigoEquipo) {
+        List<Prestamo> resultados = new ArrayList<>();
+        if (codigoEquipo == null || codigoEquipo.trim().isEmpty()) {
+            return resultados;
+        }
+
+        for (Prestamo p : servicioPrestamo.obtenerTodos()) {
+            if (p.getEquiposSolicitados() != null) {
+                for (Recurso equipo : p.getEquiposSolicitados()) {
+                    if (equipo.getCodigoEquipo().equalsIgnoreCase(codigoEquipo.trim())) {
+                        resultados.add(p);
+                        break;
+                    }
+                }
+            }
+        }
+        return resultados;
+    }
+
     public List<Prestamo> listarTodos() {
         return servicioPrestamo.obtenerTodos();
     }

@@ -85,10 +85,6 @@ public class ControladorRecurso {
         return servicioRecurso.obtenerTodos();
     }
 
-    public List<Ubicacion> listarUbicaciones() {
-        return servicioUbicacion.obtenerTodasLasUbicaciones();
-    }
-
     public String registrarUbicacion(String bloque, String salon) {
         if (bloque == null || bloque.trim().isEmpty() || salon == null || salon.trim().isEmpty()) {
             return "Error: El bloque y el salón son obligatorios.";

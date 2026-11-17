@@ -26,6 +26,32 @@ public class ControladorMenu {
         this.servicioUbicacion = new ServicioUbicacion();
     }
 
+    public ControladorLogin getControladorLogin() {
+        return new ControladorLogin(this.servicioFuncionarioAudiovisuales);
+    }
+
+    public ControladorPrestamo getControladorPrestamo() {
+        return new ControladorPrestamo(
+                this.servicioPrestamo,
+                this.servicioRecurso,
+                this.servicioEstudiante,
+                this.servicioDocente,
+                this.servicioFuncionarioSolicitante,
+                this.servicioFuncionarioAudiovisuales,
+                this.servicioSancion
+        );
+    }
+
+    public ControladorRecurso getControladorRecurso() {
+        return new ControladorRecurso(
+                this.servicioRecurso,
+                this.servicioUbicacion
+        );
+    }
+
+    public ControladorAuditorio getControladorAuditorio() {
+        return new ControladorAuditorio(this.servicioAuditorio);
+    }
     public void abrirVentanaPrestamos() {
         // Lógica para mostrar la interfaz de Préstamos
         // Ej: JFramePrestamos ventana = new JFramePrestamos(this.servicioPrestamo, ...);

@@ -15,10 +15,6 @@ public class ServicioUbicacion {
         this.ubicaciones = persistencia.leer();
     }
 
-    public List<Ubicacion> obtenerTodasLasUbicaciones() {
-        return this.ubicaciones;
-    }
-
     public boolean agregarUbicacion(String bloque, String salon) {
         for (Ubicacion u : ubicaciones) {
             if (u.getBloqueEdificio().equalsIgnoreCase(bloque) &&
