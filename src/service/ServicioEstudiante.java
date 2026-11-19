@@ -117,7 +117,7 @@ public class ServicioEstudiante {
         }
 
         if (consultarEstadoSancion(codigoEstudiantil)) {
-            return false; // Está sancionado activamente
+            return false;
         }
 
         if (prestamosDelEstudiante != null) {

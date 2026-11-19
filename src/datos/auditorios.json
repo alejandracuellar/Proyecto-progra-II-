@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "nombreAuditorio": "Auditorio Cacique Suamox",
+    "capacidad": 200,
+    "ubicacion": "Edificio de artes",
+    "horariosDisponibles": []
+  }
+]

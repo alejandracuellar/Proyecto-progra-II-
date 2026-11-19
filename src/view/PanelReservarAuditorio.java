@@ -106,9 +106,9 @@ public class PanelReservarAuditorio extends JPanel {
         cmbDiaSemana = new JComboBox<>(DIAS);
         cmbDiaSemana.setBackground(Color.WHITE);
         txtHoraInicio = new JTextField("08:00", 4);
-        txtHoraFin = new JTextField("10:00", 4);
+        txtHoraFin = new JTextField("09:00", 4);
 
-        btnReservar = new JButton("Reservar Franja");
+        btnReservar = new JButton("Reservar Horario");
         btnReservar.setBackground(COLOR_AZUL);
         btnReservar.setForeground(Color.WHITE);
         btnReservar.setFont(new Font("Segoe UI", Font.BOLD, 12));
@@ -135,6 +135,7 @@ public class PanelReservarAuditorio extends JPanel {
         btnActualizar.addActionListener(e -> cargarAuditorios());
         btnReservar.addActionListener(e -> ejecutarReserva());
         tablaCalendario.getSelectionModel().addListSelectionListener(e -> seleccionarCeldaCalendario());
+        tablaCalendario.getColumnModel().getSelectionModel().addListSelectionListener(e -> seleccionarCeldaCalendario());
 
         cargarAuditorios();
     }
@@ -168,24 +169,26 @@ public class PanelReservarAuditorio extends JPanel {
             fila[0] = String.format("%02d:00", hora);
 
             for (int d = 0; d < DIAS.length; d++) {
-                fila[d + 1] = evaluarEstadoCelda(horarios, DIAS[d], hora);
+                fila[d + 1] = evaluarEstadoCelda(horarios, DIAS[d], hora, auditorio != null);
             }
             modeloCalendario.addRow(fila);
         }
     }
 
-    private String evaluarEstadoCelda(List<HorarioDisponibilidad> horarios, String dia, int horaBloque) {
-        if (horarios == null) return "No habilitado";
-        for (HorarioDisponibilidad h : horarios) {
-            if (h.getDiaSemana() != null && h.getDiaSemana().equalsIgnoreCase(dia)) {
-                int inicio = parsearHora(h.getHoraInicio());
-                int fin = parsearHora(h.getHoraFin());
-                if (horaBloque >= inicio && horaBloque < fin) {
-                    return h.isEstaOcupado() ? "OCUPADO" : "Disponible (" + h.getHoraInicio() + "-" + h.getHoraFin() + ")";
+    private String evaluarEstadoCelda(List<HorarioDisponibilidad> horarios, String dia, int horaBloque, boolean hayAuditorio) {
+        if (!hayAuditorio) return "-";
+        if (horarios != null) {
+            for (HorarioDisponibilidad h : horarios) {
+                if (h.isEstaOcupado() && h.getDiaSemana() != null && h.getDiaSemana().equalsIgnoreCase(dia)) {
+                    int inicio = parsearHora(h.getHoraInicio());
+                    int fin = parsearHora(h.getHoraFin());
+                    if (horaBloque >= inicio && horaBloque < fin) {
+                        return "OCUPADO (" + h.getHoraInicio() + "-" + h.getHoraFin() + ")";
+                    }
                 }
             }
         }
-        return "No habilitado";
+        return "Disponible";
     }
 
     private int parsearHora(String horaTexto) {
@@ -205,23 +208,8 @@ public class PanelReservarAuditorio extends JPanel {
             cmbDiaSemana.setSelectedItem(diaSeleccionado);
             int horaSeleccionada = 7 + fila;
 
-            String nombreAuditorio = (String) cmbAuditorios.getSelectedItem();
-            Auditorio aud = (nombreAuditorio != null) ? controladorAuditorio.buscarAuditorio(nombreAuditorio) : null;
-            if (aud != null && aud.getHorariosDisponibles() != null) {
-                for (HorarioDisponibilidad h : aud.getHorariosDisponibles()) {
-                    if (h.getDiaSemana().equalsIgnoreCase(diaSeleccionado)) {
-                        int ini = parsearHora(h.getHoraInicio());
-                        int fin = parsearHora(h.getHoraFin());
-                        if (horaSeleccionada >= ini && horaSeleccionada < fin) {
-                            txtHoraInicio.setText(h.getHoraInicio());
-                            txtHoraFin.setText(h.getHoraFin());
-                            return;
-                        }
-                    }
-                }
-            }
             txtHoraInicio.setText(String.format("%02d:00", horaSeleccionada));
-            txtHoraFin.setText(String.format("%02d:00", horaSeleccionada + 2));
+            txtHoraFin.setText(String.format("%02d:00", horaSeleccionada + 1));
         }
     }
 
@@ -255,10 +243,10 @@ public class PanelReservarAuditorio extends JPanel {
                 c.setBackground(new Color(240, 242, 246));
                 c.setForeground(Color.BLACK);
                 setFont(getFont().deriveFont(Font.BOLD));
-            } else if ("OCUPADO".equals(texto)) {
+            } else if (texto.startsWith("OCUPADO")) {
                 c.setBackground(new Color(255, 224, 224));
                 c.setForeground(new Color(160, 20, 20));
-            } else if (texto.startsWith("Disponible")) {
+            } else if ("Disponible".equals(texto)) {
                 c.setBackground(isSelected ? new Color(215, 232, 255) : new Color(235, 250, 238));
                 c.setForeground(new Color(25, 110, 45));
             } else {

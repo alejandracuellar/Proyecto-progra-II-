@@ -44,7 +44,6 @@ public class ServicioSancion {
         Sancion sancion = buscarPorId(idSancion);
 
         if (sancion != null && sancion.getFechaInicio() != null) {
-            // Suma los días de penalización a la fecha de inicio
             LocalDateTime nuevaFechaFin = sancion.getFechaInicio().plusDays(diasPenalizacion);
             sancion.setFechaFin(nuevaFechaFin);
         }

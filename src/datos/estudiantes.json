@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "codigoEstudiantil": "202520062",
+    "correoInstitucional": "alejandra.cuellar01@uptc.edu.co",
+    "contadorStrikes": 0,
+    "estaSancionado": false,
+    "sanciones": [],
+    "documentoIdentidad": "1013112525",
+    "nombreCompleto": "Alejandra Cuellar Lopez",
+    "telefono": "3105026952",
+    "escuelaDependencia": "Ingenieria de Sistemas y Computacion"
+  }
+]
