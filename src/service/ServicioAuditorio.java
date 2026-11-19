@@ -72,6 +72,23 @@ public class ServicioAuditorio {
         return false;
     }
 
+    public boolean reservarHorario(String nombreAuditorio, String diaSemana, String horaInicio, String horaFin) {
+        Auditorio auditorio = buscarPorNombre(nombreAuditorio);
+
+        if (auditorio != null && auditorio.getHorariosDisponibles() != null) {
+            for (HorarioDisponibilidad horario : auditorio.getHorariosDisponibles()) {
+                if (horario.getDiaSemana().equalsIgnoreCase(diaSemana)
+                        && horario.getHoraInicio().equals(horaInicio)
+                        && horario.getHoraFin().equals(horaFin)
+                        && !horario.isEstaOcupado()) {
+                    horario.setEstaOcupado(true);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void guardarAlFinal() {
         persistencia.escribir(this.auditorios);
     }

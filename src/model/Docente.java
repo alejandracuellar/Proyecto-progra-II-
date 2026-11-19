@@ -11,7 +11,7 @@ public class Docente extends Usuario{
     public Docente() { super(); }
 
     public Docente(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoDocente, String correoInstitucional) {
-        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia, firmaDigital);
+        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia);
         this.codigoDocente = codigoDocente;
         this.correoInstitucional = correoInstitucional;
     }
@@ -39,7 +39,6 @@ public class Docente extends Usuario{
         datos.put("documento de identidad", getDocumentoIdentidad());
         datos.put("telefono", getTelefono());
         datos.put("escuela o dependencia", getEscuelaDependencia());
-        datos.put("firma digital", getFirmaDigital());
         datos.put("codigo docente", this.codigoDocente);
         datos.put("correo institucional", this.correoInstitucional);
         return datos;

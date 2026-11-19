@@ -13,7 +13,7 @@ public class FuncionarioSolicitante extends Usuario{
     public FuncionarioSolicitante() { super(); }
 
     public FuncionarioSolicitante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependecia, String firmaDigital, String codigoFuncionario, String correoInstitucional, String cargo, String dependencia) {
-        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia, firmaDigital);
+        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependecia);
         this.codigoFuncionario = codigoFuncionario;
         this.correoInstitucional = correoInstitucional;
         this.cargo = cargo;
@@ -59,7 +59,6 @@ public class FuncionarioSolicitante extends Usuario{
         datos.put("documentoIdentidad", getDocumentoIdentidad());
         datos.put("telefono", getTelefono());
         datos.put("escuelaDependencia", getEscuelaDependencia());
-        datos.put("firmaDigital", getFirmaDigital());
         datos.put("codigoFuncionario", this.codigoFuncionario);
         datos.put("cargo", this.cargo);
         return datos;

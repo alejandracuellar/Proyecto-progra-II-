@@ -13,16 +13,21 @@ public class PanelDevolverPrestamo extends JPanel {
     private final ControladorPrestamo controladorPrestamo;
 
     private final Color COLOR_AZUL = new Color(8, 36, 112);
+    private final Color COLOR_EXITO = new Color(22, 128, 60);
+    private final Color COLOR_ERROR = new Color(185, 28, 28);
+    private final Color COLOR_AVISO = new Color(180, 100, 10);
     private final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     private JTextField txtCodigoPrestamo;
     private JButton btnBuscar;
+    private JLabel lblEstadoBusqueda;
 
     private JTextArea txtResumenPrestamo;
 
     private JTextField txtDocFuncionarioRecibe;
     private JComboBox<String> cmbEstadoEntrega;
     private JTextArea txtObservaciones;
+    private JLabel lblMensajeDevolucion;
     private JButton btnRegistrarDevolucion;
     private JButton btnLimpiar;
 
@@ -32,16 +37,19 @@ public class PanelDevolverPrestamo extends JPanel {
         this.controladorPrestamo = controladorPrestamo;
 
         setBackground(Color.WHITE);
-        setLayout(new BorderLayout(15, 15));
+        setLayout(new BorderLayout(15, 12));
         setBorder(new EmptyBorder(25, 35, 25, 35));
 
-        JPanel panelNorte = new JPanel(new BorderLayout(10, 15));
+        JPanel panelNorte = new JPanel(new BorderLayout(10, 10));
         panelNorte.setBackground(Color.WHITE);
 
         JLabel lblTitulo = new JLabel("Devolver Préstamo");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
         lblTitulo.setForeground(COLOR_AZUL);
         panelNorte.add(lblTitulo, BorderLayout.NORTH);
+
+        JPanel panelBusquedaContenedor = new JPanel(new BorderLayout(5, 6));
+        panelBusquedaContenedor.setBackground(Color.WHITE);
 
         JPanel panelBusqueda = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 10));
         panelBusqueda.setBackground(new Color(245, 247, 250));
@@ -64,7 +72,13 @@ public class PanelDevolverPrestamo extends JPanel {
         panelBusqueda.add(txtCodigoPrestamo);
         panelBusqueda.add(btnBuscar);
 
-        panelNorte.add(panelBusqueda, BorderLayout.CENTER);
+        lblEstadoBusqueda = new JLabel(" ");
+        lblEstadoBusqueda.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+
+        panelBusquedaContenedor.add(panelBusqueda, BorderLayout.NORTH);
+        panelBusquedaContenedor.add(lblEstadoBusqueda, BorderLayout.SOUTH);
+
+        panelNorte.add(panelBusquedaContenedor, BorderLayout.CENTER);
         add(panelNorte, BorderLayout.NORTH);
 
         JPanel panelCentral = new JPanel(new GridBagLayout());
@@ -131,13 +145,24 @@ public class PanelDevolverPrestamo extends JPanel {
         txtObservaciones = new JTextArea(3, 20);
         txtObservaciones.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         txtObservaciones.setLineWrap(true);
-        JScrollPane scrollObs = new JScrollPane(txtObservaciones);
-        panelCentral.add(scrollObs, gbc);
+        txtObservaciones.setWrapStyleWord(true);
+        txtObservaciones.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(190, 190, 190)),
+                new EmptyBorder(6, 8, 6, 8)
+        ));
+        panelCentral.add(txtObservaciones, gbc);
 
         add(panelCentral, BorderLayout.CENTER);
 
-        JPanel panelSur = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 10));
+        JPanel panelSur = new JPanel(new BorderLayout(8, 6));
         panelSur.setBackground(Color.WHITE);
+
+        lblMensajeDevolucion = new JLabel(" ");
+        lblMensajeDevolucion.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        panelSur.add(lblMensajeDevolucion, BorderLayout.NORTH);
+
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 4));
+        panelBotones.setBackground(Color.WHITE);
 
         btnLimpiar = new JButton("Limpiar");
         btnLimpiar.setBackground(new Color(240, 240, 240));
@@ -154,8 +179,10 @@ public class PanelDevolverPrestamo extends JPanel {
         btnRegistrarDevolucion.setPreferredSize(new Dimension(190, 36));
         btnRegistrarDevolucion.setEnabled(false);
 
-        panelSur.add(btnLimpiar);
-        panelSur.add(btnRegistrarDevolucion);
+        panelBotones.add(btnLimpiar);
+        panelBotones.add(btnRegistrarDevolucion);
+        panelSur.add(panelBotones, BorderLayout.SOUTH);
+
         add(panelSur, BorderLayout.SOUTH);
 
         btnBuscar.addActionListener(e -> buscarPrestamo());
@@ -165,17 +192,19 @@ public class PanelDevolverPrestamo extends JPanel {
     }
 
     private void buscarPrestamo() {
+        lblMensajeDevolucion.setText(" ");
         String codigo = txtCodigoPrestamo.getText().trim();
+
         if (codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Ingrese el código del préstamo a devolver.",
-                    "Campo vacío", JOptionPane.WARNING_MESSAGE);
+            mostrarFeedback(lblEstadoBusqueda, "Ingrese el código del préstamo a devolver.", COLOR_ERROR);
+            txtCodigoPrestamo.requestFocus();
             return;
         }
 
         prestamoActual = controladorPrestamo.buscarPrestamo(codigo);
         if (prestamoActual == null) {
-            txtResumenPrestamo.setText("No se encontró ningún préstamo con el código '" + codigo + "'.");
+            mostrarFeedback(lblEstadoBusqueda, "No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
+            txtResumenPrestamo.setText("Busque un código de préstamo válido para visualizar sus datos.");
             btnRegistrarDevolucion.setEnabled(false);
             return;
         }
@@ -204,9 +233,9 @@ public class PanelDevolverPrestamo extends JPanel {
         boolean cerrado = "DEVUELTO".equalsIgnoreCase(estado) || "CANCELADO".equalsIgnoreCase(estado);
         btnRegistrarDevolucion.setEnabled(!cerrado);
         if (cerrado) {
-            JOptionPane.showMessageDialog(this,
-                    "Este préstamo ya se encuentra en estado " + estado + ".",
-                    "Préstamo cerrado", JOptionPane.INFORMATION_MESSAGE);
+            mostrarFeedback(lblEstadoBusqueda, "Este préstamo ya se encuentra cerrado en estado " + estado + ".", COLOR_AVISO);
+        } else {
+            mostrarFeedback(lblEstadoBusqueda, "Préstamo activo encontrado. Complete los datos de recepción abajo.", COLOR_EXITO);
         }
     }
 
@@ -225,10 +254,10 @@ public class PanelDevolverPrestamo extends JPanel {
         );
 
         if (respuesta.startsWith("EXITO")) {
-            JOptionPane.showMessageDialog(this, respuesta, "Devolución Exitosa", JOptionPane.INFORMATION_MESSAGE);
             limpiarFormulario();
+            mostrarFeedback(lblMensajeDevolucion, respuesta, COLOR_EXITO);
         } else {
-            JOptionPane.showMessageDialog(this, respuesta, "Error en Devolución", JOptionPane.ERROR_MESSAGE);
+            mostrarFeedback(lblMensajeDevolucion, respuesta, COLOR_ERROR);
         }
     }
 
@@ -243,13 +272,20 @@ public class PanelDevolverPrestamo extends JPanel {
         return "Desconocido";
     }
 
+    private void mostrarFeedback(JLabel etiqueta, String mensaje, Color color) {
+        etiqueta.setText(mensaje);
+        etiqueta.setForeground(color);
+    }
+
     private void limpiarFormulario() {
         prestamoActual = null;
         txtCodigoPrestamo.setText("");
+        lblEstadoBusqueda.setText(" ");
         txtResumenPrestamo.setText("Busque un código de préstamo para visualizar sus datos antes de registrar la devolución.");
         txtDocFuncionarioRecibe.setText("");
         cmbEstadoEntrega.setSelectedIndex(0);
         txtObservaciones.setText("");
+        lblMensajeDevolucion.setText(" ");
         btnRegistrarDevolucion.setEnabled(false);
         txtCodigoPrestamo.requestFocus();
     }

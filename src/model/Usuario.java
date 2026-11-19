@@ -8,17 +8,15 @@ public abstract class Usuario {
     private String nombreCompleto;
     private String telefono;
     private String escuelaDependencia;
-    private String firmaDigital;
 
     public Usuario() {}
 
-    public Usuario(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital) {
+    public Usuario(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia) {
         this.id = id;
         this.documentoIdentidad = documentoIdentidad;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
         this.escuelaDependencia = escuelaDependencia;
-        this.firmaDigital = firmaDigital;
     }
 
     public abstract Map<String, String> getDatosAutocompletar();
@@ -64,11 +62,4 @@ public abstract class Usuario {
         this.escuelaDependencia = escuelaDependencia;
     }
 
-    public String getFirmaDigital() {
-        return firmaDigital;
-    }
-
-    public void setFirmaDigital(String firmaDigital) {
-        this.firmaDigital = firmaDigital;
-    }
 }

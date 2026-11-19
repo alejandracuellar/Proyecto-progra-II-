@@ -20,7 +20,7 @@ public class Estudiante extends Usuario{
     }
 
     public Estudiante(String id, String documentoIdentidad, String nombreCompleto, String telefono, String escuelaDependencia, String firmaDigital, String codigoEstudiantil, String correoInstitucional, int contadorStrikes, boolean estaSancionado, List<Sancion> historialSanciones) {
-        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependencia, firmaDigital);
+        super(id, documentoIdentidad, nombreCompleto, telefono, escuelaDependencia);
         this.codigoEstudiantil = codigoEstudiantil;
         this.correoInstitucional = correoInstitucional;
         this.contadorStrikes = contadorStrikes;
@@ -75,7 +75,6 @@ public class Estudiante extends Usuario{
         datos.put("documento de identidad", getDocumentoIdentidad());
         datos.put("telefono", getTelefono());
         datos.put("escuela o dependencia", getEscuelaDependencia());
-        datos.put("firma digital", getFirmaDigital());
         datos.put("codigo estudiantil", this.codigoEstudiantil);
         datos.put("correo institucional", this.correoInstitucional);
         return datos;

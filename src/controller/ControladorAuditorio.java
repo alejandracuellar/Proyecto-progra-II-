@@ -89,4 +89,24 @@ public class ControladorAuditorio {
             return "NO DISPONIBLE: Esa franja horaria ya está ocupada o no está habilitada para ese día.";
         }
     }
+
+    public String reservarAuditorio(String nombreAuditorio, String diaSemana, String horaInicio, String horaFin) {
+        if (nombreAuditorio == null || nombreAuditorio.trim().isEmpty()) {
+            return "Error: Debe seleccionar un auditorio.";
+        }
+        if (diaSemana == null || diaSemana.trim().isEmpty()) {
+            return "Error: Debe seleccionar un día de la semana.";
+        }
+        if (horaInicio == null || horaInicio.trim().isEmpty() || horaFin == null || horaFin.trim().isEmpty()) {
+            return "Error: Debe especificar la hora de inicio y de fin.";
+        }
+
+        boolean reservado = servicioAuditorio.reservarHorario(nombreAuditorio, diaSemana, horaInicio, horaFin);
+
+        if (reservado) {
+            return "EXITO: El auditorio '" + nombreAuditorio + "' fue reservado el " + diaSemana + " de " + horaInicio + " a " + horaFin + ".";
+        } else {
+            return "Error: Esa franja horaria ya está ocupada o no coincide con un bloque habilitado del auditorio.";
+        }
+    }
 }

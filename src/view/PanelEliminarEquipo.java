@@ -13,10 +13,14 @@ public class PanelEliminarEquipo extends JPanel {
 
     private final ControladorRecurso controladorRecurso;
     private final Color COLOR_AZUL = new Color(8, 36, 112);
+    private final Color COLOR_EXITO = new Color(22, 128, 60);
+    private final Color COLOR_ERROR = new Color(185, 28, 28);
+    private final Color COLOR_NEUTRO = new Color(90, 90, 90);
 
     private JTextField txtCodigoEquipo;
     private JButton btnEliminar;
     private JButton btnActualizar;
+    private JLabel lblMensajeAccion;
 
     private JTable tablaEquipos;
     private DefaultTableModel modeloTabla;
@@ -26,16 +30,19 @@ public class PanelEliminarEquipo extends JPanel {
         this.controladorRecurso = controladorRecurso;
 
         setBackground(Color.WHITE);
-        setLayout(new BorderLayout(15, 15));
+        setLayout(new BorderLayout(15, 12));
         setBorder(new EmptyBorder(25, 35, 25, 35));
 
-        JPanel panelNorte = new JPanel(new BorderLayout(10, 15));
+        JPanel panelNorte = new JPanel(new BorderLayout(10, 10));
         panelNorte.setBackground(Color.WHITE);
 
         JLabel lblTitulo = new JLabel("Eliminar Equipo Audiovisual");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
         lblTitulo.setForeground(COLOR_AZUL);
         panelNorte.add(lblTitulo, BorderLayout.NORTH);
+
+        JPanel panelAccionContenedor = new JPanel(new BorderLayout(5, 6));
+        panelAccionContenedor.setBackground(Color.WHITE);
 
         JPanel panelAccion = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 10));
         panelAccion.setBackground(new Color(245, 247, 250));
@@ -66,7 +73,14 @@ public class PanelEliminarEquipo extends JPanel {
         panelAccion.add(btnEliminar);
         panelAccion.add(btnActualizar);
 
-        panelNorte.add(panelAccion, BorderLayout.CENTER);
+        lblMensajeAccion = new JLabel("Seleccione un equipo de la tabla o escriba su código para eliminarlo.");
+        lblMensajeAccion.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+        lblMensajeAccion.setForeground(COLOR_NEUTRO);
+
+        panelAccionContenedor.add(panelAccion, BorderLayout.NORTH);
+        panelAccionContenedor.add(lblMensajeAccion, BorderLayout.SOUTH);
+
+        panelNorte.add(panelAccionContenedor, BorderLayout.CENTER);
         add(panelNorte, BorderLayout.NORTH);
 
         String[] columnas = {
@@ -92,25 +106,34 @@ public class PanelEliminarEquipo extends JPanel {
         scrollTabla.getViewport().setBackground(Color.WHITE);
         add(scrollTabla, BorderLayout.CENTER);
 
-        lblEstado = new JLabel("Seleccione un equipo de la tabla o escriba su código para eliminarlo.");
+        lblEstado = new JLabel("Total de equipos en inventario: 0");
         lblEstado.setFont(new Font("Segoe UI", Font.ITALIC, 13));
-        lblEstado.setForeground(new Color(90, 90, 90));
+        lblEstado.setForeground(COLOR_NEUTRO);
         add(lblEstado, BorderLayout.SOUTH);
 
-        tablaEquipos.getSelectionModel().addListSelectionListener(e -> {
-            if (!e.getValueIsAdjusting()) {
-                int filaSeleccionada = tablaEquipos.getSelectedRow();
-                if (filaSeleccionada != -1) {
-                    String codigo = modeloTabla.getValueAt(filaSeleccionada, 0).toString();
-                    txtCodigoEquipo.setText(codigo);
-                }
-            }
-        });
-
-        btnActualizar.addActionListener(e -> cargarTablaEquipos());
+        // Eventos con lambdas en una sola línea
+        tablaEquipos.getSelectionModel().addListSelectionListener(e -> seleccionarFilaEquipo(e.getValueIsAdjusting()));
+        btnActualizar.addActionListener(e -> actualizarVista());
         btnEliminar.addActionListener(e -> ejecutarEliminacion());
+        txtCodigoEquipo.addActionListener(e -> ejecutarEliminacion());
 
         cargarTablaEquipos();
+    }
+
+    private void seleccionarFilaEquipo(boolean ajustando) {
+        if (!ajustando) {
+            int filaSeleccionada = tablaEquipos.getSelectedRow();
+            if (filaSeleccionada != -1) {
+                String codigo = modeloTabla.getValueAt(filaSeleccionada, 0).toString();
+                txtCodigoEquipo.setText(codigo);
+                mostrarFeedback("Equipo '" + codigo + "' seleccionado para eliminar.", COLOR_NEUTRO);
+            }
+        }
+    }
+
+    private void actualizarVista() {
+        cargarTablaEquipos();
+        mostrarFeedback("Lista de equipos actualizada.", COLOR_NEUTRO);
     }
 
     public void cargarTablaEquipos() {
@@ -138,29 +161,23 @@ public class PanelEliminarEquipo extends JPanel {
     private void ejecutarEliminacion() {
         String codigo = txtCodigoEquipo.getText().trim();
         if (codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Seleccione un equipo de la tabla o escriba su código.",
-                    "Campo vacío", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        int confirmacion = JOptionPane.showConfirmDialog(this,
-                "¿Está seguro de eliminar permanentemente el equipo con código '" + codigo + "'?",
-                "Confirmar Eliminación",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE);
-
-        if (confirmacion != JOptionPane.YES_OPTION) {
+            mostrarFeedback("Seleccione un equipo de la tabla o escriba su código para eliminar.", COLOR_ERROR);
+            txtCodigoEquipo.requestFocus();
             return;
         }
 
         String respuesta = controladorRecurso.eliminarRecurso(codigo);
         if (respuesta.startsWith("EXITO")) {
-            JOptionPane.showMessageDialog(this, respuesta, "Equipo Eliminado", JOptionPane.INFORMATION_MESSAGE);
             txtCodigoEquipo.setText("");
             cargarTablaEquipos();
+            mostrarFeedback(respuesta, COLOR_EXITO);
         } else {
-            JOptionPane.showMessageDialog(this, respuesta, "No se pudo eliminar", JOptionPane.ERROR_MESSAGE);
+            mostrarFeedback(respuesta, COLOR_ERROR);
         }
+    }
+
+    private void mostrarFeedback(String mensaje, Color color) {
+        lblMensajeAccion.setText(mensaje);
+        lblMensajeAccion.setForeground(color);
     }
 }

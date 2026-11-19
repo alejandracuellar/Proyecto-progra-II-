@@ -52,26 +52,25 @@ public class ControladorMenu {
     public ControladorAuditorio getControladorAuditorio() {
         return new ControladorAuditorio(this.servicioAuditorio);
     }
-    public void abrirVentanaPrestamos() {
-        // Lógica para mostrar la interfaz de Préstamos
-        // Ej: JFramePrestamos ventana = new JFramePrestamos(this.servicioPrestamo, ...);
-        // ventana.setVisible(true);
+
+    public ControladorUsuario getControladorUsuario() {
+        return new ControladorUsuario(
+                this.servicioEstudiante,
+                this.servicioDocente,
+                this.servicioFuncionarioSolicitante,
+                this.servicioFuncionarioAudiovisuales
+        );
     }
 
-    public void abrirVentanaRecursos() {
-        // Lógica para mostrar la interfaz de Recursos
+    public ControladorSancion getControladorSancion() {
+        return new ControladorSancion(
+                this.servicioSancion,
+                this.servicioEstudiante
+        );
     }
-
-    public void abrirVentanaUsuarios() {
-        // Lógica para mostrar la interfaz de Usuarios
-    }
-
 
     public void cerrarAplicacion() {
-        System.out.println("Iniciando proceso de guardado...");
-
         try {
-
             servicioEstudiante.guardarAlFinal();
             servicioDocente.guardarAlFinal();
             servicioFuncionarioAudiovisuales.guardarAlFinal();
@@ -80,11 +79,9 @@ public class ControladorMenu {
             servicioRecurso.guardarAlFinal();
             servicioSancion.guardarAlFinal();
             servicioAuditorio.guardarAlFinal();
-
-            System.out.println("Todos los datos se han guardado correctamente en los archivos JSON.");
+            // servicioUbicacion.guardarAlFinal(); // Descomentar si tiene persistencia
 
             System.exit(0);
-
         } catch (Exception e) {
             System.err.println("Error al intentar guardar los datos antes de salir: " + e.getMessage());
         }

@@ -16,6 +16,9 @@ public class PanelConsultarPrestamo extends JPanel {
     private final ControladorPrestamo controladorPrestamo;
 
     private final Color COLOR_AZUL = new Color(8, 36, 112);
+    private final Color COLOR_EXITO = new Color(22, 128, 60);
+    private final Color COLOR_ERROR = new Color(185, 28, 28);
+    private final Color COLOR_NEUTRO = new Color(90, 90, 90);
     private final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     private JComboBox<String> cmbTipoBusqueda;
@@ -32,16 +35,20 @@ public class PanelConsultarPrestamo extends JPanel {
         this.controladorPrestamo = controladorPrestamo;
 
         setBackground(Color.WHITE);
-        setLayout(new BorderLayout(15, 15));
+        setLayout(new BorderLayout(15, 12));
         setBorder(new EmptyBorder(25, 35, 25, 35));
 
-        JPanel panelNorte = new JPanel(new BorderLayout(10, 15));
+        JPanel panelNorte = new JPanel(new BorderLayout(10, 10));
         panelNorte.setBackground(Color.WHITE);
 
         JLabel lblTitulo = new JLabel("Consultar Préstamo");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
         lblTitulo.setForeground(COLOR_AZUL);
         panelNorte.add(lblTitulo, BorderLayout.NORTH);
+
+        // Contenedor de filtros + JLabel de estado debajo del campo
+        JPanel panelBusquedaContenedor = new JPanel(new BorderLayout(5, 6));
+        panelBusquedaContenedor.setBackground(Color.WHITE);
 
         JPanel panelFiltros = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 10));
         panelFiltros.setBackground(new Color(245, 247, 250));
@@ -84,7 +91,14 @@ public class PanelConsultarPrestamo extends JPanel {
         panelFiltros.add(btnBuscar);
         panelFiltros.add(btnLimpiar);
 
-        panelNorte.add(panelFiltros, BorderLayout.CENTER);
+        lblEstadoBusqueda = new JLabel("Seleccione el criterio de búsqueda e ingrese el código.");
+        lblEstadoBusqueda.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+        lblEstadoBusqueda.setForeground(COLOR_NEUTRO);
+
+        panelBusquedaContenedor.add(panelFiltros, BorderLayout.NORTH);
+        panelBusquedaContenedor.add(lblEstadoBusqueda, BorderLayout.SOUTH);
+
+        panelNorte.add(panelBusquedaContenedor, BorderLayout.CENTER);
         add(panelNorte, BorderLayout.NORTH);
 
         String[] columnas = {
@@ -110,32 +124,24 @@ public class PanelConsultarPrestamo extends JPanel {
         scrollTabla.getViewport().setBackground(Color.WHITE);
         add(scrollTabla, BorderLayout.CENTER);
 
-        lblEstadoBusqueda = new JLabel("Seleccione el criterio de búsqueda e ingrese el código.");
-        lblEstadoBusqueda.setFont(new Font("Segoe UI", Font.ITALIC, 13));
-        lblEstadoBusqueda.setForeground(new Color(90, 90, 90));
-        add(lblEstadoBusqueda, BorderLayout.SOUTH);
-
-        cmbTipoBusqueda.addActionListener(e -> {
-            String seleccion = (String) cmbTipoBusqueda.getSelectedItem();
-            if ("Código de Préstamo".equals(seleccion)) {
-                lblCodigo.setText("Código de Préstamo:");
-            } else {
-                lblCodigo.setText("Código de Equipo:");
-            }
-            limpiarResultados();
-        });
-
+        // Eventos con lambdas en una sola línea
+        cmbTipoBusqueda.addActionListener(e -> cambiarCriterioBusqueda());
         btnBuscar.addActionListener(e -> ejecutarBusqueda());
         txtCodigo.addActionListener(e -> ejecutarBusqueda());
         btnLimpiar.addActionListener(e -> limpiarResultados());
     }
 
+    private void cambiarCriterioBusqueda() {
+        String seleccion = (String) cmbTipoBusqueda.getSelectedItem();
+        lblCodigo.setText("Código de Préstamo".equals(seleccion) ? "Código de Préstamo:" : "Código de Equipo:");
+        limpiarResultados();
+    }
+
     private void ejecutarBusqueda() {
         String codigo = txtCodigo.getText().trim();
         if (codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor ingrese un código para realizar la consulta.",
-                    "Campo vacío", JOptionPane.WARNING_MESSAGE);
+            mostrarFeedback("Por favor ingrese un código para realizar la consulta.", COLOR_ERROR);
+            txtCodigo.requestFocus();
             return;
         }
 
@@ -146,9 +152,9 @@ public class PanelConsultarPrestamo extends JPanel {
             Prestamo prestamo = controladorPrestamo.buscarPrestamo(codigo);
             if (prestamo != null) {
                 agregarFilaPrestamo(prestamo);
-                lblEstadoBusqueda.setText("Se encontró 1 préstamo con código: " + codigo);
+                mostrarFeedback("Se encontró 1 préstamo con código: " + codigo, COLOR_EXITO);
             } else {
-                lblEstadoBusqueda.setText("No se encontró ningún préstamo con el código '" + codigo + "'.");
+                mostrarFeedback("No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
             }
         } else {
             List<Prestamo> lista = controladorPrestamo.buscarPrestamosPorEquipo(codigo);
@@ -156,9 +162,9 @@ public class PanelConsultarPrestamo extends JPanel {
                 for (Prestamo p : lista) {
                     agregarFilaPrestamo(p);
                 }
-                lblEstadoBusqueda.setText("Se encontraron " + lista.size() + " préstamo(s) asociados al equipo '" + codigo + "'.");
+                mostrarFeedback("Se encontraron " + lista.size() + " préstamo(s) asociados al equipo '" + codigo + "'.", COLOR_EXITO);
             } else {
-                lblEstadoBusqueda.setText("No hay préstamos registrados para el equipo '" + codigo + "'.");
+                mostrarFeedback("No hay préstamos registrados para el equipo '" + codigo + "'.", COLOR_ERROR);
             }
         }
     }
@@ -197,10 +203,15 @@ public class PanelConsultarPrestamo extends JPanel {
         return "Desconocido";
     }
 
+    private void mostrarFeedback(String mensaje, Color color) {
+        lblEstadoBusqueda.setText(mensaje);
+        lblEstadoBusqueda.setForeground(color);
+    }
+
     private void limpiarResultados() {
         txtCodigo.setText("");
         modeloTabla.setRowCount(0);
-        lblEstadoBusqueda.setText("Seleccione el criterio de búsqueda e ingrese el código.");
+        mostrarFeedback("Seleccione el criterio de búsqueda e ingrese el código.", COLOR_NEUTRO);
         txtCodigo.requestFocus();
     }
 }
