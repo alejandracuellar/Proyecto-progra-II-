@@ -9,4 +9,6 @@ public class Main {
             vista.setVisible(true);
         });
     }
+
+    //Puedes arreglar lo de si si ponemos un json de ubicaciones por fis
 }
