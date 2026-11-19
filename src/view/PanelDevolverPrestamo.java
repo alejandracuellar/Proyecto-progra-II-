@@ -196,14 +196,14 @@ public class PanelDevolverPrestamo extends JPanel {
         String codigo = txtCodigoPrestamo.getText().trim();
 
         if (codigo.isEmpty()) {
-            mostrarFeedback(lblEstadoBusqueda, "Ingrese el código del préstamo a devolver.", COLOR_ERROR);
+            mostrarComentario(lblEstadoBusqueda, "Ingrese el código del préstamo a devolver.", COLOR_ERROR);
             txtCodigoPrestamo.requestFocus();
             return;
         }
 
         prestamoActual = controladorPrestamo.buscarPrestamo(codigo);
         if (prestamoActual == null) {
-            mostrarFeedback(lblEstadoBusqueda, "No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
+            mostrarComentario(lblEstadoBusqueda, "No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
             txtResumenPrestamo.setText("Busque un código de préstamo válido para visualizar sus datos.");
             btnRegistrarDevolucion.setEnabled(false);
             return;
@@ -233,9 +233,9 @@ public class PanelDevolverPrestamo extends JPanel {
         boolean cerrado = "DEVUELTO".equalsIgnoreCase(estado) || "CANCELADO".equalsIgnoreCase(estado);
         btnRegistrarDevolucion.setEnabled(!cerrado);
         if (cerrado) {
-            mostrarFeedback(lblEstadoBusqueda, "Este préstamo ya se encuentra cerrado en estado " + estado + ".", COLOR_AVISO);
+            mostrarComentario(lblEstadoBusqueda, "Este préstamo ya se encuentra cerrado en estado " + estado + ".", COLOR_AVISO);
         } else {
-            mostrarFeedback(lblEstadoBusqueda, "Préstamo activo encontrado. Complete los datos de recepción abajo.", COLOR_EXITO);
+            mostrarComentario(lblEstadoBusqueda, "Préstamo activo encontrado. Complete los datos de recepción abajo.", COLOR_EXITO);
         }
     }
 
@@ -255,9 +255,9 @@ public class PanelDevolverPrestamo extends JPanel {
 
         if (respuesta.startsWith("EXITO")) {
             limpiarFormulario();
-            mostrarFeedback(lblMensajeDevolucion, respuesta, COLOR_EXITO);
+            mostrarComentario(lblMensajeDevolucion, respuesta, COLOR_EXITO);
         } else {
-            mostrarFeedback(lblMensajeDevolucion, respuesta, COLOR_ERROR);
+            mostrarComentario(lblMensajeDevolucion, respuesta, COLOR_ERROR);
         }
     }
 
@@ -272,7 +272,7 @@ public class PanelDevolverPrestamo extends JPanel {
         return "Desconocido";
     }
 
-    private void mostrarFeedback(JLabel etiqueta, String mensaje, Color color) {
+    private void mostrarComentario(JLabel etiqueta, String mensaje, Color color) {
         etiqueta.setText(mensaje);
         etiqueta.setForeground(color);
     }

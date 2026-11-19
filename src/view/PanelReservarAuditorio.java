@@ -93,7 +93,6 @@ public class PanelReservarAuditorio extends JPanel {
         scrollCalendario.getViewport().setBackground(Color.WHITE);
         add(scrollCalendario, BorderLayout.CENTER);
 
-        // Panel inferior ajustado para que todo quepa en una sola línea + JLabel de estado debajo
         JPanel panelSur = new JPanel(new BorderLayout(5, 6));
         panelSur.setBackground(new Color(248, 249, 252));
         panelSur.setBorder(BorderFactory.createCompoundBorder(

@@ -68,7 +68,6 @@ public class PanelAgregarPrestamo extends JPanel {
 
         int fila = 0;
 
-        // 1. Código Formato Físico
         agregarEtiqueta(panelFormulario, "Código Formato Físico (*):", gbc, 0, fila);
         txtCodigoFormato = crearCampoTexto(18);
         gbc.gridx = 1;
@@ -76,7 +75,6 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(txtCodigoFormato, gbc);
         gbc.gridwidth = 1;
 
-        // 2. Tipo de Solicitante
         fila++;
         agregarEtiqueta(panelFormulario, "Tipo de Solicitante (*):", gbc, 0, fila);
         cmbTipoSolicitante = new JComboBox<>(new String[]{"ESTUDIANTE", "DOCENTE", "FUNCIONARIO"});
@@ -85,7 +83,6 @@ public class PanelAgregarPrestamo extends JPanel {
         gbc.gridx = 1;
         panelFormulario.add(cmbTipoSolicitante, gbc);
 
-        // 3. Código Solicitante + Botón Verificar + Feedback debajo
         fila++;
         agregarEtiqueta(panelFormulario, "Código Solicitante (*):", gbc, 0, fila);
         txtCodigoSolicitante = crearCampoTexto(15);
@@ -97,10 +94,9 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(btnBuscarSolicitante, gbc);
 
         fila++;
-        lblDatosSolicitante = crearLabelFeedback("Ingrese el código y presione 'Verificar Solicitante'.");
-        agregarFeedbackEnFila(panelFormulario, lblDatosSolicitante, gbc, fila);
+        lblDatosSolicitante = crearLabelComentario("Ingrese el código y presione 'Verificar Solicitante'.");
+        agregarComentarioEnFila(panelFormulario, lblDatosSolicitante, gbc, fila);
 
-        // 4. Código Equipo + Botones + Feedback debajo
         fila++;
         agregarEtiqueta(panelFormulario, "Código Equipo (*):", gbc, 0, fila);
         txtCodigoEquipo = crearCampoTexto(15);
@@ -117,10 +113,9 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(panelBotonesEquipo, gbc);
 
         fila++;
-        lblEstadoEquipo = crearLabelFeedback(" ");
-        agregarFeedbackEnFila(panelFormulario, lblEstadoEquipo, gbc, fila);
+        lblEstadoEquipo = crearLabelComentario(" ");
+        agregarComentarioEnFila(panelFormulario, lblEstadoEquipo, gbc, fila);
 
-        // 5. Lista de Equipos Seleccionados (sin JScrollPane)
         fila++;
         agregarEtiqueta(panelFormulario, "Equipos Seleccionados:", gbc, 0, fila);
         modeloListaEquipos = new DefaultListModel<>();
@@ -133,7 +128,6 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(listaEquipos, gbc);
         gbc.gridwidth = 1;
 
-        // 6. Destino / Salón
         fila++;
         agregarEtiqueta(panelFormulario, "Destino / Salón (*):", gbc, 0, fila);
         txtDestino = crearCampoTexto(20);
@@ -142,7 +136,6 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(txtDestino, gbc);
         gbc.gridwidth = 1;
 
-        // 7. Fecha Inicio y Devolución + Feedback debajo
         fila++;
         agregarEtiqueta(panelFormulario, "Fecha Inicio (yyyy-MM-dd HH:mm) (*):", gbc, 0, fila);
         txtFechaEjecucion = crearCampoTexto(18);
@@ -162,10 +155,9 @@ public class PanelAgregarPrestamo extends JPanel {
         gbc.gridwidth = 1;
 
         fila++;
-        lblEstadoFechas = crearLabelFeedback(" ");
-        agregarFeedbackEnFila(panelFormulario, lblEstadoFechas, gbc, fila);
+        lblEstadoFechas = crearLabelComentario(" ");
+        agregarComentarioEnFila(panelFormulario, lblEstadoFechas, gbc, fila);
 
-        // 8. Cód. Docente Responsable + Feedback debajo
         fila++;
         agregarEtiqueta(panelFormulario, "Cód. Docente Responsable (si aplica):", gbc, 0, fila);
         txtDocenteResponsable = crearCampoTexto(18);
@@ -175,10 +167,9 @@ public class PanelAgregarPrestamo extends JPanel {
         gbc.gridwidth = 1;
 
         fila++;
-        lblEstadoDocente = crearLabelFeedback(" ");
-        agregarFeedbackEnFila(panelFormulario, lblEstadoDocente, gbc, fila);
+        lblEstadoDocente = crearLabelComentario(" ");
+        agregarComentarioEnFila(panelFormulario, lblEstadoDocente, gbc, fila);
 
-        // 9. Doc. Funcionario Entrega
         fila++;
         agregarEtiqueta(panelFormulario, "Doc. Funcionario Entrega:", gbc, 0, fila);
         txtFuncionarioEntrega = crearCampoTexto(18);
@@ -187,7 +178,6 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(txtFuncionarioEntrega, gbc);
         gbc.gridwidth = 1;
 
-        // 10. Observaciones (sin JScrollPane)
         fila++;
         agregarEtiqueta(panelFormulario, "Observaciones:", gbc, 0, fila);
         txtObservaciones = new JTextArea(2, 20);
@@ -203,10 +193,8 @@ public class PanelAgregarPrestamo extends JPanel {
         panelFormulario.add(txtObservaciones, gbc);
         gbc.gridwidth = 1;
 
-        // Directamente al centro sin JScrollPane
         add(panelFormulario, BorderLayout.CENTER);
 
-        // Panel Sur: JLabel de resultado general + Botones
         JPanel panelSur = new JPanel(new BorderLayout(8, 4));
         panelSur.setBackground(Color.WHITE);
 
@@ -232,7 +220,6 @@ public class PanelAgregarPrestamo extends JPanel {
 
         add(panelSur, BorderLayout.SOUTH);
 
-        // --- EVENTOS CON LAMBDAS EN UNA SOLA LÍNEA ---
         btnBuscarSolicitante.addActionListener(e -> verificarSolicitante());
         btnAgregarEquipo.addActionListener(e -> agregarEquipoALista());
         btnQuitarEquipo.addActionListener(e -> quitarEquipoDeLista());
@@ -252,15 +239,15 @@ public class PanelAgregarPrestamo extends JPanel {
         String codigo = txtCodigoSolicitante.getText().trim();
 
         if (codigo.isEmpty()) {
-            mostrarFeedback(lblDatosSolicitante, "Error: Ingrese un código primero.", false);
+            mostrarComentario(lblDatosSolicitante, "Error: Ingrese un código primero.", false);
             return;
         }
 
         Map<String, String> datos = controladorPrestamo.buscarDatosSolicitante(tipo, codigo);
         if (datos == null || datos.isEmpty()) {
-            mostrarFeedback(lblDatosSolicitante, "El " + tipo.toLowerCase() + " con código '" + codigo + "' no existe en el sistema.", false);
+            mostrarComentario(lblDatosSolicitante, "El " + tipo.toLowerCase() + " con código '" + codigo + "' no existe en el sistema.", false);
         } else {
-            mostrarFeedback(lblDatosSolicitante, "Encontrado: " + datos.get("nombreCompleto") + " | Doc: " + datos.get("documentoIdentidad"), true);
+            mostrarComentario(lblDatosSolicitante, "Encontrado: " + datos.get("nombreCompleto") + " | Doc: " + datos.get("documentoIdentidad"), true);
         }
     }
 
@@ -273,36 +260,36 @@ public class PanelAgregarPrestamo extends JPanel {
 
         Map<String, String> datos = controladorPrestamo.buscarDatosSolicitante("DOCENTE", codigoDoc);
         if (datos == null || datos.isEmpty()) {
-            mostrarFeedback(lblEstadoDocente, "El docente con código '" + codigoDoc + "' no existe en el sistema.", false);
+            mostrarComentario(lblEstadoDocente, "El docente con código '" + codigoDoc + "' no existe en el sistema.", false);
         } else {
-            mostrarFeedback(lblEstadoDocente, "Docente verificado: " + datos.get("nombreCompleto"), true);
+            mostrarComentario(lblEstadoDocente, "Docente verificado: " + datos.get("nombreCompleto"), true);
         }
     }
 
     private void agregarEquipoALista() {
         String cod = txtCodigoEquipo.getText().trim();
         if (cod.isEmpty()) {
-            mostrarFeedback(lblEstadoEquipo, "Ingrese el código del equipo.", false);
+            mostrarComentario(lblEstadoEquipo, "Ingrese el código del equipo.", false);
             return;
         }
         if (modeloListaEquipos.contains(cod)) {
-            mostrarFeedback(lblEstadoEquipo, "El equipo '" + cod + "' ya está en la lista.", false);
+            mostrarComentario(lblEstadoEquipo, "El equipo '" + cod + "' ya está en la lista.", false);
             return;
         }
 
         modeloListaEquipos.addElement(cod);
         txtCodigoEquipo.setText("");
         txtCodigoEquipo.requestFocus();
-        mostrarFeedback(lblEstadoEquipo, "Equipo '" + cod + "' agregado a la lista.", true);
+        mostrarComentario(lblEstadoEquipo, "Equipo '" + cod + "' agregado a la lista.", true);
     }
 
     private void quitarEquipoDeLista() {
         int idx = listaEquipos.getSelectedIndex();
         if (idx != -1) {
             String eliminado = modeloListaEquipos.remove(idx);
-            mostrarFeedback(lblEstadoEquipo, "Equipo '" + eliminado + "' quitado de la lista.", true);
+            mostrarComentario(lblEstadoEquipo, "Equipo '" + eliminado + "' quitado de la lista.", true);
         } else {
-            mostrarFeedback(lblEstadoEquipo, "Seleccione un equipo de la lista para quitar.", false);
+            mostrarComentario(lblEstadoEquipo, "Seleccione un equipo de la lista para quitar.", false);
         }
     }
 
@@ -329,7 +316,7 @@ public class PanelAgregarPrestamo extends JPanel {
             fechaInicio = LocalDateTime.parse(txtFechaEjecucion.getText().trim(), FORMATO_FECHA);
             fechaFin = LocalDateTime.parse(txtFechaDevolucion.getText().trim(), FORMATO_FECHA);
         } catch (DateTimeParseException ex) {
-            mostrarFeedback(lblEstadoFechas, "Formato de fecha inválido. Use: yyyy-MM-dd HH:mm (Ej: 2026-11-18 21:16)", false);
+            mostrarComentario(lblEstadoFechas, "Formato de fecha inválido. Use: yyyy-MM-dd HH:mm (Ej: 2026-11-18 21:16)", false);
             return;
         }
 
@@ -348,9 +335,9 @@ public class PanelAgregarPrestamo extends JPanel {
 
         if (respuesta.startsWith("EXITO")) {
             limpiarCampos();
-            mostrarFeedback(lblMensajeGeneral, respuesta, true);
+            mostrarComentario(lblMensajeGeneral, respuesta, true);
         } else {
-            mostrarFeedback(lblMensajeGeneral, respuesta, false);
+            mostrarComentario(lblMensajeGeneral, respuesta, false);
         }
     }
 
@@ -377,19 +364,19 @@ public class PanelAgregarPrestamo extends JPanel {
         lblMensajeGeneral.setText(" ");
     }
 
-    private void mostrarFeedback(JLabel etiqueta, String mensaje, boolean esValido) {
+    private void mostrarComentario(JLabel etiqueta, String mensaje, boolean esValido) {
         etiqueta.setText(mensaje);
         etiqueta.setForeground(esValido ? COLOR_EXITO : COLOR_ERROR);
     }
 
-    private JLabel crearLabelFeedback(String textoInicial) {
+    private JLabel crearLabelComentario(String textoInicial) {
         JLabel lbl = new JLabel(textoInicial);
         lbl.setFont(new Font("Segoe UI", Font.ITALIC, 12));
         lbl.setForeground(COLOR_NEUTRO);
         return lbl;
     }
 
-    private void agregarFeedbackEnFila(JPanel panel, JLabel etiqueta, GridBagConstraints gbc, int fila) {
+    private void agregarComentarioEnFila(JPanel panel, JLabel etiqueta, GridBagConstraints gbc, int fila) {
         Insets original = gbc.insets;
         gbc.insets = new Insets(0, 6, 4, 6);
         gbc.gridx = 1;

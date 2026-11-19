@@ -65,10 +65,8 @@ public class VistaMenuPrincipal extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Panel izquierdo
         add(construirMenuLateral(), BorderLayout.WEST);
 
-        // Panel central
         cardLayoutCentral = new CardLayout();
         panelSubmenuCentral = new JPanel(cardLayoutCentral);
         panelSubmenuCentral.setPreferredSize(new Dimension(240, 0));
@@ -83,7 +81,6 @@ public class VistaMenuPrincipal extends JFrame {
 
         add(panelSubmenuCentral, BorderLayout.CENTER);
 
-        // Panel derecho
         cardLayoutDerecho = new CardLayout();
         panelContenidoDerecho = new JPanel(cardLayoutDerecho);
         panelContenidoDerecho.setPreferredSize(new Dimension(740, 0));
@@ -134,7 +131,6 @@ public class VistaMenuPrincipal extends JFrame {
         btnSanciones = crearBotonMenu("Sanciones");
         btnGuardarSalir = crearBotonMenu("Guardar y salir");
 
-        // Lambdas en una sola línea
         btnPrestamos.addActionListener(e -> cambiarModulo("SUB_PRESTAMOS", "AGREGAR_PRESTAMO"));
         btnUsuarios.addActionListener(e -> cambiarModulo("SUB_USUARIOS", "AGREGAR_USUARIO"));
         btnEquipos.addActionListener(e -> abrirEliminarEquipo());

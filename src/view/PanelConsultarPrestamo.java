@@ -46,7 +46,6 @@ public class PanelConsultarPrestamo extends JPanel {
         lblTitulo.setForeground(COLOR_AZUL);
         panelNorte.add(lblTitulo, BorderLayout.NORTH);
 
-        // Contenedor de filtros + JLabel de estado debajo del campo
         JPanel panelBusquedaContenedor = new JPanel(new BorderLayout(5, 6));
         panelBusquedaContenedor.setBackground(Color.WHITE);
 
@@ -124,7 +123,6 @@ public class PanelConsultarPrestamo extends JPanel {
         scrollTabla.getViewport().setBackground(Color.WHITE);
         add(scrollTabla, BorderLayout.CENTER);
 
-        // Eventos con lambdas en una sola línea
         cmbTipoBusqueda.addActionListener(e -> cambiarCriterioBusqueda());
         btnBuscar.addActionListener(e -> ejecutarBusqueda());
         txtCodigo.addActionListener(e -> ejecutarBusqueda());
@@ -140,7 +138,7 @@ public class PanelConsultarPrestamo extends JPanel {
     private void ejecutarBusqueda() {
         String codigo = txtCodigo.getText().trim();
         if (codigo.isEmpty()) {
-            mostrarFeedback("Por favor ingrese un código para realizar la consulta.", COLOR_ERROR);
+            mostrarComentario("Por favor ingrese un código para realizar la consulta.", COLOR_ERROR);
             txtCodigo.requestFocus();
             return;
         }
@@ -152,9 +150,9 @@ public class PanelConsultarPrestamo extends JPanel {
             Prestamo prestamo = controladorPrestamo.buscarPrestamo(codigo);
             if (prestamo != null) {
                 agregarFilaPrestamo(prestamo);
-                mostrarFeedback("Se encontró 1 préstamo con código: " + codigo, COLOR_EXITO);
+                mostrarComentario("Se encontró 1 préstamo con código: " + codigo, COLOR_EXITO);
             } else {
-                mostrarFeedback("No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
+                mostrarComentario("No se encontró ningún préstamo con el código '" + codigo + "'.", COLOR_ERROR);
             }
         } else {
             List<Prestamo> lista = controladorPrestamo.buscarPrestamosPorEquipo(codigo);
@@ -162,9 +160,9 @@ public class PanelConsultarPrestamo extends JPanel {
                 for (Prestamo p : lista) {
                     agregarFilaPrestamo(p);
                 }
-                mostrarFeedback("Se encontraron " + lista.size() + " préstamo(s) asociados al equipo '" + codigo + "'.", COLOR_EXITO);
+                mostrarComentario("Se encontraron " + lista.size() + " préstamo(s) asociados al equipo '" + codigo + "'.", COLOR_EXITO);
             } else {
-                mostrarFeedback("No hay préstamos registrados para el equipo '" + codigo + "'.", COLOR_ERROR);
+                mostrarComentario("No hay préstamos registrados para el equipo '" + codigo + "'.", COLOR_ERROR);
             }
         }
     }
@@ -203,7 +201,7 @@ public class PanelConsultarPrestamo extends JPanel {
         return "Desconocido";
     }
 
-    private void mostrarFeedback(String mensaje, Color color) {
+    private void mostrarComentario(String mensaje, Color color) {
         lblEstadoBusqueda.setText(mensaje);
         lblEstadoBusqueda.setForeground(color);
     }
@@ -211,7 +209,7 @@ public class PanelConsultarPrestamo extends JPanel {
     private void limpiarResultados() {
         txtCodigo.setText("");
         modeloTabla.setRowCount(0);
-        mostrarFeedback("Seleccione el criterio de búsqueda e ingrese el código.", COLOR_NEUTRO);
+        mostrarComentario("Seleccione el criterio de búsqueda e ingrese el código.", COLOR_NEUTRO);
         txtCodigo.requestFocus();
     }
 }

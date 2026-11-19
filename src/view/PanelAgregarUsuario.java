@@ -96,7 +96,6 @@ public class PanelAgregarUsuario extends JPanel {
         contenedorNorteForm.add(panelFormulario, BorderLayout.NORTH);
         add(contenedorNorteForm, BorderLayout.CENTER);
 
-        // Panel inferior con JLabel de feedback y botones
         JPanel panelSur = new JPanel(new BorderLayout(10, 8));
         panelSur.setBackground(Color.WHITE);
 
@@ -196,9 +195,9 @@ public class PanelAgregarUsuario extends JPanel {
 
         if (respuesta.startsWith("EXITO")) {
             limpiarCampos();
-            mostrarFeedback(respuesta, true);
+            mostrarComentario(respuesta, true);
         } else {
-            mostrarFeedback(respuesta, false);
+            mostrarComentario(respuesta, false);
         }
     }
 
@@ -217,7 +216,7 @@ public class PanelAgregarUsuario extends JPanel {
         txtContrasena.setText("");
     }
 
-    private void mostrarFeedback(String mensaje, boolean exito) {
+    private void mostrarComentario(String mensaje, boolean exito) {
         lblMensajeEstado.setText(mensaje);
         lblMensajeEstado.setForeground(exito ? new Color(22, 128, 60) : new Color(185, 28, 28));
     }

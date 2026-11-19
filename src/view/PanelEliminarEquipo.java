@@ -111,7 +111,6 @@ public class PanelEliminarEquipo extends JPanel {
         lblEstado.setForeground(COLOR_NEUTRO);
         add(lblEstado, BorderLayout.SOUTH);
 
-        // Eventos con lambdas en una sola línea
         tablaEquipos.getSelectionModel().addListSelectionListener(e -> seleccionarFilaEquipo(e.getValueIsAdjusting()));
         btnActualizar.addActionListener(e -> actualizarVista());
         btnEliminar.addActionListener(e -> ejecutarEliminacion());
@@ -126,14 +125,14 @@ public class PanelEliminarEquipo extends JPanel {
             if (filaSeleccionada != -1) {
                 String codigo = modeloTabla.getValueAt(filaSeleccionada, 0).toString();
                 txtCodigoEquipo.setText(codigo);
-                mostrarFeedback("Equipo '" + codigo + "' seleccionado para eliminar.", COLOR_NEUTRO);
+                mostrarComentario("Equipo '" + codigo + "' seleccionado para eliminar.", COLOR_NEUTRO);
             }
         }
     }
 
     private void actualizarVista() {
         cargarTablaEquipos();
-        mostrarFeedback("Lista de equipos actualizada.", COLOR_NEUTRO);
+        mostrarComentario("Lista de equipos actualizada.", COLOR_NEUTRO);
     }
 
     public void cargarTablaEquipos() {
@@ -161,7 +160,7 @@ public class PanelEliminarEquipo extends JPanel {
     private void ejecutarEliminacion() {
         String codigo = txtCodigoEquipo.getText().trim();
         if (codigo.isEmpty()) {
-            mostrarFeedback("Seleccione un equipo de la tabla o escriba su código para eliminar.", COLOR_ERROR);
+            mostrarComentario("Seleccione un equipo de la tabla o escriba su código para eliminar.", COLOR_ERROR);
             txtCodigoEquipo.requestFocus();
             return;
         }
@@ -170,13 +169,13 @@ public class PanelEliminarEquipo extends JPanel {
         if (respuesta.startsWith("EXITO")) {
             txtCodigoEquipo.setText("");
             cargarTablaEquipos();
-            mostrarFeedback(respuesta, COLOR_EXITO);
+            mostrarComentario(respuesta, COLOR_EXITO);
         } else {
-            mostrarFeedback(respuesta, COLOR_ERROR);
+            mostrarComentario(respuesta, COLOR_ERROR);
         }
     }
 
-    private void mostrarFeedback(String mensaje, Color color) {
+    private void mostrarComentario(String mensaje, Color color) {
         lblMensajeAccion.setText(mensaje);
         lblMensajeAccion.setForeground(color);
     }
