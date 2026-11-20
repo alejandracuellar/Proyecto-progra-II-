@@ -9,5 +9,16 @@
     "nombreCompleto": "Alejandra Cuellar Lopez",
     "telefono": "3105026952",
     "escuelaDependencia": "Ingenieria de Sistemas y Computacion"
+  },
+  {
+    "codigoEstudiantil": "202520359",
+    "correoInstitucional": "laura.gonzalez74@uptc.edu.co",
+    "contadorStrikes": 0,
+    "estaSancionado": false,
+    "sanciones": [],
+    "documentoIdentidad": "1053444482",
+    "nombreCompleto": "Laura Carolina González Cardenas",
+    "telefono": "3214052520",
+    "escuelaDependencia": "Ingenieria de Sistemas"
   }
 ]

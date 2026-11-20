@@ -10,5 +10,5 @@ public class Main {
         });
     }
 
-    //Puedes arreglar lo de si si ponemos un json de ubicaciones por fis
+
 }
